@@ -1,3 +1,5 @@
+![Xerinfuscator banner](https://i.ibb.co/V0zxPjG3/Chat-GPT-Image-Oct-22-2025-08-27-30-AM.png)
+
 # Xerinfuscator — Next-Gen .NET Obfuscator
 
 **Xerinfuscator** is a powerful next-generation .NET obfuscator that delivers advanced layers of protection to make reverse engineering nearly impossible. It combines multiple techniques — from string and integer encryption to virtualization, anti-debugging, and proxy protection — to ensure the strongest defense for your assemblies.
