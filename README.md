@@ -1,47 +1,89 @@
 # Xerinfuscator — Next-Gen .NET Obfuscator
 
-**Xerinfuscator** is a production-ready, high-performance .NET obfuscator designed to raise the bar on reverse-engineering resistance. It combines multiple protection layers — code virtualization, string & integer encryption, anti-debug/anti-dumping, control-flow obfuscation, proxying and more — to make analysis and tampering expensive and time consuming.
-
----
-
-## Table of Contents
-
-* [Key Features](#key-features)
-* [Limitations & Notes](#limitations--notes)
-* [Compatibility](#compatibility)
-* [Changelog Highlights](#changelog-highlights)
-* [Pricing & Plans](#pricing--plans)
-* [Legal & Responsible Use](#legal--responsible-use)
-* [Support & Contact](#support--contact)
+**Xerinfuscator** is a powerful next-generation .NET obfuscator that delivers advanced layers of protection to make reverse engineering nearly impossible. It combines multiple techniques — from string and integer encryption to virtualization, anti-debugging, and proxy protection — to ensure the strongest defense for your assemblies.
 
 ---
 
 ## Key Features
 
-* **Code Virtualization (VM)** — convert IL into custom bytecode executed by a VM runtime to hide program logic.
-* **String Encryption** — compress & encrypt strings with runtime decryption and caching for performance.
-* **Integer & Constant Protection** — protect numeric constants (including switch-case handling) using optimized transforms.
-* **Control-Flow Obfuscation & Code Mutation** — reorder and replace IL with semantically equivalent but harder-to-analyze sequences.
-* **Symbols Renaming** — rename types/methods/fields/parameters to unreadable identifiers (including options for Unicode/glyph names).
-* **Reference / Delegate Proxying** — replace direct calls with encrypted/reflective proxies and delegate tables.
-* **Anti-Debugging / Anti-Dumping / Anti-Tamper** — runtime checks to block debuggers, memory dumps, and unauthorized modifications.
-* **Resources & Imports Protection** — encrypt embedded resources and hide/secure native imports.
-* **Project System & Presets** — save/load protection profiles to reproduce the same settings across builds.
+### Code Encryption
+
+Encrypts critical code sections and decrypts them only at runtime, ensuring that your logic remains secure even if the assembly is analyzed.
+
+### Integer Protection
+
+Protects numeric constants with optimized XOR-based encryption algorithms to prevent static value analysis.
+
+### Anti-Decompiling
+
+Prevents source code decompilation using advanced anti-IL and metadata protection layers.
+
+### Anti-Debugging
+
+Detects and prevents runtime debugging attempts, terminating execution when debuggers are attached.
+
+### Anti-Dumping
+
+Blocks memory extraction and dumping of protected assemblies to stop runtime code theft.
+
+### Resources Encryption
+
+Encrypts embedded resources (such as images, files, and configurations) and decrypts them securely at runtime.
+
+### Imports Protection
+
+Protects and hides imported functions and API calls from being easily identified in disassemblers.
+
+### Enum Protection
+
+Encrypts and scrambles enum values to prevent logical inference and analysis of your application’s control paths.
+
+### Constants Mover
+
+Moves and dynamically restores constants to make pattern-based deobfuscation harder.
+
+### Delegate Reference Proxy
+
+Replaces direct calls with indirect delegate proxies, complicating call flow tracing.
+
+### Anti-Tamper
+
+Guards assemblies from modification by adding runtime integrity verification layers.
+
+### Code Virtualization
+
+Converts IL instructions into custom virtual opcodes executed by a secure virtual machine, hiding program logic.
+
+### Control Flow Obfuscation
+
+Rewrites method bodies with complex branching logic, preserving behavior while destroying readability.
+
+### Symbols Renaming
+
+Renames classes, methods, and fields to unreadable names (including Unicode and glyph symbols) to hide structure and meaning.
+
+### Native Packer
+
+Wraps assemblies in a native executable container to compress and hide .NET metadata.
 
 ---
 
 ## Limitations & Notes
 
-* Some advanced protections (VM, anti-tamper, native packing) may be incompatible with specific assembly types, e.g. C++/CLI binaries, strongly-signed assemblies, or assemblies that must be patched after protection. Always test protected assemblies thoroughly.
-* Virtualization and heavy obfuscation may increase binary size and affect startup time or JIT behavior in certain environments — profile critical paths.
-* Obfuscation raises the cost of reverse engineering but does not make it impossible. Consider obfuscation as part of a defense-in-depth strategy.
+### Limited Packer Support
+
+Native wrapping (native packer) is only available for **.NET Framework executable** assemblies.
+
+### Limited VM Support
+
+Code Virtualization (VM) is only available for **.NET Framework executable** assemblies.
 
 ---
 
 ## Compatibility
 
-* **Platforms:** Windows, Linux (feature behavior may vary depending on runtime & native wrappers).
-* **Frameworks:** Broad .NET support (modern .NET Core / .NET 5–10 and .NET Framework families). Validate target frameworks when using advanced features.
+* **Platforms:** Windows.
+* **Frameworks:** Xerinfuscator provides comprehensive support for all major .NET platforms including .NET Framework, .NET Core, .NET 5/6/7/8, ASP.NET, WPF, Xamarin, Mono, and more. Xerinfuscator seamlessly integrates with your development workflow.
 * **Application Types:** Console apps, WinForms, WPF, ASP.NET apps, class libraries, services — subject to the limitations above.
 
 ---
