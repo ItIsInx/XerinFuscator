@@ -1,8 +1,5 @@
 # Xerinfuscator — Next-Gen .NET Obfuscator
 
-[![Release](https://img.shields.io/badge/release-v1.0.0-blue)](https://xerinfuscator.great-site.net)
-[![License](https://img.shields.io/badge/license-Proprietary-red)]
-
 **Xerinfuscator** is a production-ready, high-performance .NET obfuscator designed to raise the bar on reverse-engineering resistance. It combines multiple protection layers — code virtualization, string & integer encryption, anti-debug/anti-dumping, control-flow obfuscation, proxying and more — to make analysis and tampering expensive and time consuming.
 
 ---
