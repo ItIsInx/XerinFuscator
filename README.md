@@ -92,6 +92,9 @@ Code Virtualization (VM) is only available for **.NET Framework executable** ass
 
 ## Changelog Highlights
 
+* Improved anti decompiler: Better metadata hardening
+* Improved anti virtual machine: Scan multiple SCSI ports (0-3) instead of only port 0, Added BIOS, Manufacturer, and Product Name detection layers & Removed overly broad VIRTUAL keyword check
+* Anti Virtual Machine fixes: False positives on legitimate Windows systems, VM detection failure when disk is on non-zero SCSI port
 * Improved integer encryption and switch-case handling to reduce runtime overhead.
 * VM runtime fixes: better compatibility with embedded dependency loaders (Costura/ILMerge-like scenarios) and improved performance for hot paths.
 
