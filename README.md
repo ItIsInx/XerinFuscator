@@ -1,4 +1,4 @@
-![Xerinfuscator banner](https://i.ibb.co/V0zxPjG3/Chat-GPT-Image-Oct-22-2025-08-27-30-AM.png)
+![Xerinfuscator banner](https://i.ibb.co/vCThKwWD/Chat-GPT-Image-Oct-22-2025-08-27-30-AM.png)
 
 # Xerinfuscator — Next-Gen .NET Obfuscator
 
