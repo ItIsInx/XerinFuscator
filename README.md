@@ -92,11 +92,47 @@ Code Virtualization (VM) is only available for **.NET Framework executable** ass
 
 ## Changelog Highlights
 
-* Improved anti decompiler: Better metadata hardening
-* Improved anti virtual machine: Scan multiple SCSI ports (0-3) instead of only port 0, Added BIOS, Manufacturer, and Product Name detection layers & Removed overly broad VIRTUAL keyword check
-* Anti Virtual Machine fixes: False positives on legitimate Windows systems, VM detection failure when disk is on non-zero SCSI port
-* Improved integer encryption and switch-case handling to reduce runtime overhead.
-* VM runtime fixes: better compatibility with embedded dependency loaders (Costura/ILMerge-like scenarios) and improved performance for hot paths.
+## Changelog — v5.9.5
+
+### 🔧 Fixes
+
+**Minor fixes**
+- Fixed some minor bugs in Xerin Core
+
+**Embed VM Runtime**
+- Fixed loading DLLs with dots in names (e.g., `axax.sdsd.dll`)
+- Better resource name matching
+
+**Code Virtualization**
+- Fixed stack / calls / dispatch issues affecting VM performance
+
+**Resources Encryption**
+- Fixed incompatibility with Code Virtualization embedded runtime
+
+**Code Mutation**
+- Fixed techniques that were corrupting the IL stack and breaking some functions
+
+---
+
+### 🚀 Improvements
+
+**General**
+- Xerin Core is now more stable with better overall performance
+
+**Embed VM Runtime**
+- Improved compression algorithm for higher safety and stability
+- Cached resource names for better performance
+
+**Code Virtualization**
+- Expanded fast paths for numeric, memory, compare, and conversion operations
+- Faster dispatch via direct opcode / vcall mapping
+- Earlier ECALL delegate compilation & caching
+- Selective field accessor caching for hot paths
+- Micro-inlining of hot helpers  
+  _Upcoming updates will further boost VM performance_
+
+**Resources Encryption**
+- Stronger and more stable compression algorithm
 
 ---
 
