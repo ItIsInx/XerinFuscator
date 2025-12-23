@@ -92,47 +92,60 @@ Code Virtualization (VM) is only available for **.NET Framework executable** ass
 
 ## Changelog Highlights
 
-## Changelog — v5.9.5
+## What's New in v6.0.2
+⚡ **General Improvements**
 
-### 🔧 Fixes
-
-**Minor fixes**
-- Fixed some minor bugs in Xerin Core
-
-**Embed VM Runtime**
-- Fixed loading DLLs with dots in names (e.g., `axax.sdsd.dll`)
-- Better resource name matching
-
-**Code Virtualization**
-- Fixed stack / calls / dispatch issues affecting VM performance
-
-**Resources Encryption**
-- Fixed incompatibility with Code Virtualization embedded runtime
-
-**Code Mutation**
-- Fixed techniques that were corrupting the IL stack and breaking some functions
+### Improvements
+- Minor improvements across Xerin Core for improved stability and low-impact performance
+- Overall VM runtime and protection pipeline are more stable under heavy workloads
 
 ---
 
-### 🚀 Improvements
+## ⚡ Improved: Embed VM Runtime
 
-**General**
-- Xerin Core is now more stable with better overall performance
+### Improvements
+- Fixed loading of embedded DLLs containing dots in their names (e.g. `axax.sdsd.dll`)
+- Improved resource name matching logic for higher reliability
+- Improved compression algorithm for better safety and runtime stability
+- Cached resolved resource names to reduce lookup overhead
 
-**Embed VM Runtime**
-- Improved compression algorithm for higher safety and stability
-- Cached resource names for better performance
+---
 
-**Code Virtualization**
-- Expanded fast paths for numeric, memory, compare, and conversion operations
-- Faster dispatch via direct opcode / vcall mapping
-- Earlier ECALL delegate compilation & caching
-- Selective field accessor caching for hot paths
-- Micro-inlining of hot helpers  
-  _Upcoming updates will further boost VM performance_
+## ⚡ Improved: Code Virtualization
 
-**Resources Encryption**
+### Improvements
+- Expanded fast paths for numeric, memory, comparison, and conversion operations
+- Faster VM dispatch using direct opcode → vcall mapping
+- Earlier ECALL delegate compilation with aggressive caching
+- Selective field accessor caching for hot execution paths
+- Micro-inlining of frequently used VM helpers
+- Improved VM stability by fixing stack, call, and dispatch edge cases
+
+_Upcoming updates will further boost VM performance._
+
+---
+
+## ⚡ Improved: Resources Encryption
+
+### Improvements
 - Stronger and more stable compression algorithm
+- Improved compatibility with embedded VM runtime
+
+---
+
+## 🐞 Fixed: Code Mutation
+
+### Fixes
+- Fixed mutation techniques that could corrupt the IL stack
+- Prevented function breakage caused by invalid instruction reordering
+
+---
+
+## 🐞 Minor Fixes
+
+### Fixes
+- Fixed several minor bugs across Xerin Core and protection modules
+- Improved overall reliability and execution stability
 
 ---
 
