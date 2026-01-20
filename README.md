@@ -129,7 +129,7 @@ Xerinfuscator is intended to protect legitimate software IP. The tool should not
 ## Support & Contact
 
 * Website: [https://xerinfuscator.com/](https://xerinfuscator.com/)
-* Another-Website: [xerinfuscator.site](xerinfuscator.site)
+* Another-Website: [xerinfuscator.site](http://xerinfuscator.site)
 * Email: [xerinfuscator@gmail.com](mailto:xerinfuscator@gmail.com)
 * Community: Discord & Telegram (links available on the site footer)
 
