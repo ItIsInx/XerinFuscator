@@ -92,12 +92,25 @@ Code Virtualization (VM) is only available for **.NET Framework executable** ass
 
 ## Changelog Highlights
 
-## What's New in v6.0.2
-⚡ **General Improvements**
+## What's New in v6.0.6
+🐞 **Fixed: Code virtualization**
+
+### Fixes
+- Fixed VM Core to handle / fix module correctly
+
+⚡ **Improved: Code virtualization**
 
 ### Improvements
-- Minor improvements across Xerin Core for improved stability and low-impact performance
-- Overall VM runtime and protection pipeline are more stable under heavy workloads
+- Improved VM Core to handle module in a better way
+
+🐞 **Fixed: Constants mover**
+
+### Fixes
+- Fixed ignoring / skipping some constants in methods
+
+---
+
+Thanks to users **fcsaurom** & **idk1ware** for reporting
 
 ---
 
