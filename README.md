@@ -92,21 +92,30 @@ Code Virtualization (VM) is only available for **.NET Framework executable** ass
 
 ## Changelog Highlights
 
-## What's New in v6.0.6
-🐞 **Fixed: Code virtualization**
+## What's New in v6.0.8
 
-### Fixes
-- Fixed VM Core to handle / fix module correctly
+### 🔧 Code Virtualization
+- Improved runtime stability for **64-bit targets** by fixing immediate value handling in the VM execution path
+- Enhanced object creation reliability via a dedicated runtime path for array instantiation  
+  *(including multi-dimensional arrays)*
+- Strengthened `newobj` invocation handling to prevent edge-case stalls and ensure consistent execution flow
+- General runtime call handling hardening with minimal behavioral surface changes
 
-⚡ **Improved: Code virtualization**
+### 🧬 Enum Protection
+- Fixed an issue where `modreq/modopt` and `pinned` modifiers were stripped from type signatures, causing broken method references  
+  *(e.g. `string.GetPinnableReference` → `MissingMethodException`)*
+- Updated `RewriteTypeSig` to replace enum types with their underlying types **without removing required/optional modifiers**, preserving valid `MemberRef` signatures
 
-### Improvements
-- Improved VM Core to handle module in a better way
+### 📦 Imports Protection
+- Fixed a bug related to `GetModuleHandle`
 
-🐞 **Fixed: Constants mover**
+### 🌀 Control Flow
+- Strengthened control flow obfuscation across **all three presets** while keeping protections intact
+- Simplified runtime overhead by tightening dispatcher/arithmetic patterns and trimming heavy junk in performance presets
 
-### Fixes
-- Fixed ignoring / skipping some constants in methods
+### 🔐 Strings Encryption
+- Improved string protection robustness and efficiency
+- Internal refactoring with minor stability enhancements
 
 ---
 
