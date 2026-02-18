@@ -92,30 +92,31 @@ Code Virtualization (VM) is only available for **.NET Framework executable** ass
 
 ## Changelog Highlights
 
-## What's New in v6.0.8
+## What's New in v6.0.9
 
-### 🔧 Code Virtualization
-- Improved runtime stability for **64-bit targets** by fixing immediate value handling in the VM execution path
-- Enhanced object creation reliability via a dedicated runtime path for array instantiation  
-  *(including multi-dimensional arrays)*
-- Strengthened `newobj` invocation handling to prevent edge-case stalls and ensure consistent execution flow
-- General runtime call handling hardening with minimal behavioral surface changes
+### 🧬 Code Virtualization
+• Fixed `memory leaks`  
+• General runtime stability and other improvements
 
-### 🧬 Enum Protection
-- Fixed an issue where `modreq/modopt` and `pinned` modifiers were stripped from type signatures, causing broken method references  
-  *(e.g. `string.GetPinnableReference` → `MissingMethodException`)*
-- Updated `RewriteTypeSig` to replace enum types with their underlying types **without removing required/optional modifiers**, preserving valid `MemberRef` signatures
+### 🛡️ Code Encryption
+• Added real `CRC validation` to detect runtime tampering  
+• Some internal improvements for `better security`
 
-### 📦 Imports Protection
-- Fixed a bug related to `GetModuleHandle`
+### 🔀 Control Flow
+• Hardened control flow mangling and dispatcher logic for better resilience  
+• Increased obfuscation `complexity` across all presets  
+• Reduced unnecessary `junk / fake` artifacts without weakening protection
 
-### 🌀 Control Flow
-- Strengthened control flow obfuscation across **all three presets** while keeping protections intact
-- Simplified runtime overhead by tightening dispatcher/arithmetic patterns and trimming heavy junk in performance presets
+### 📦 Constants Mover
+• Made `storageClass` creation lazy per type (only when a constant is actually found), avoiding unnecessary type allocations and module add/remove operations  
+• Simplified dictionary usage (`values`) by removing redundant `ContainsKey` checks and switching to `TryGetValue` in the static constructor  
+• Preserved all functional behavior and `IL transformation` semantics while improving performance with `low-risk` changes
 
-### 🔐 Strings Encryption
-- Improved string protection robustness and efficiency
-- Internal refactoring with minor stability enhancements
+### 5️⃣ Integers Encryption
+• Added support for encrypting `long`, `float`, and `double` constants
+
+### 🚀 General Improvements & Bug Fixes
+• Various internal optimizations and minor bug fixes
 
 ---
 
