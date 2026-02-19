@@ -120,8 +120,6 @@ Code Virtualization (VM) is only available for **.NET Framework executable** ass
 
 ---
 
-Thanks to users **fcsaurom** & **idk1ware** for reporting
-
 ---
 
 ## Pricing & Plans
