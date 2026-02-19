@@ -92,33 +92,17 @@ Code Virtualization (VM) is only available for **.NET Framework executable** ass
 
 ## Changelog Highlights
 
-## What's New in v6.0.9
+## What's New in v6.1.0
+
+### 🕸️ Reference Proxy
+• Bound dynamic wrapper to `module` instead of `type` so it can legally call `non-public` methods inside the same assembly  
+• Unified delegate creation: always builds a `DynamicMethod` wrapper, with a fast path using `Delegate.CreateDelegate` only for public static methods when safe  
+• Fixed parameter `mapping` for `static` targets  
+• Generated proxies now have `straight-line` IL with no stack manipulation beyond the original call, reducing `IL stack` analysis issues on methods like the `ArchiveFactory.OpenArchive` wrapper
 
 ### 🧬 Code Virtualization
-• Fixed `memory leaks`  
-• General runtime stability and other improvements
-
-### 🛡️ Code Encryption
-• Added real `CRC validation` to detect runtime tampering  
-• Some internal improvements for `better security`
-
-### 🔀 Control Flow
-• Hardened control flow mangling and dispatcher logic for better resilience  
-• Increased obfuscation `complexity` across all presets  
-• Reduced unnecessary `junk / fake` artifacts without weakening protection
-
-### 📦 Constants Mover
-• Made `storageClass` creation lazy per type (only when a constant is actually found), avoiding unnecessary type allocations and module add/remove operations  
-• Simplified dictionary usage (`values`) by removing redundant `ContainsKey` checks and switching to `TryGetValue` in the static constructor  
-• Preserved all functional behavior and `IL transformation` semantics while improving performance with `low-risk` changes
-
-### 5️⃣ Integers Encryption
-• Added support for encrypting `long`, `float`, and `double` constants
-
-### 🚀 General Improvements & Bug Fixes
-• Various internal optimizations and minor bug fixes
-
----
+• Added special handling in `Invoke Call` to detect calls to `System.Reflection.Assembly.GetExecutingAssembly()`  
+• Fixed resource-loading scenarios (e.g. `GetManifestResourceStream("")`) inside virtualized `methods / constructors`
 
 ---
 
