@@ -85,7 +85,7 @@ Code Virtualization (VM) is only available for **.NET Framework executable** ass
 ## Compatibility
 
 * **Platforms:** Windows.
-* **Frameworks:** Xerinfuscator provides comprehensive support for all major .NET platforms including .NET Framework, .NET Core, .NET 5/6/7/8, ASP.NET, WPF, Xamarin, Mono, and more. Xerinfuscator seamlessly integrates with your development workflow.
+* **Frameworks:** Xerinfuscator provides comprehensive support for all major .NET platforms including .NET Framework, .NET Core, .NET 5/6/7/8/9/10, ASP.NET, WPF, Xamarin, Mono, and more. Xerinfuscator seamlessly integrates with your development workflow.
 * **Application Types:** Console apps, WinForms, WPF, ASP.NET apps, class libraries, services — subject to the limitations above.
 
 ---
