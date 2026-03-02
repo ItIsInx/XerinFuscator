@@ -92,17 +92,13 @@ Code Virtualization (VM) is only available for **.NET Framework executable** ass
 
 ## Changelog Highlights
 
-## What's New in v6.1.0
-
-### 🕸️ Reference Proxy
-• Bound dynamic wrapper to `module` instead of `type` so it can legally call `non-public` methods inside the same assembly  
-• Unified delegate creation: always builds a `DynamicMethod` wrapper, with a fast path using `Delegate.CreateDelegate` only for public static methods when safe  
-• Fixed parameter `mapping` for `static` targets  
-• Generated proxies now have `straight-line` IL with no stack manipulation beyond the original call, reducing `IL stack` analysis issues on methods like the `ArchiveFactory.OpenArchive` wrapper
+## What's New in v6.2.0
 
 ### 🧬 Code Virtualization
-• Added special handling in `Invoke Call` to detect calls to `System.Reflection.Assembly.GetExecutingAssembly()`  
-• Fixed resource-loading scenarios (e.g. `GetManifestResourceStream("")`) inside virtualized `methods / constructors`
+• Fixed `.NET 6+/CoreCLR` startup crash  
+• Improved runtime detection in the virtualization pipeline to reliably distinguish `.NET Framework` vs `.NET Core/6+`  
+
+> Result: Now `Code Virtualization` fully supports modern `.NET (Core / 6+)` runtimes alongside `.NET Framework`.
 
 ---
 
