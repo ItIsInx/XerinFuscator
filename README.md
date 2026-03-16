@@ -58,7 +58,7 @@ Converts IL instructions into custom virtual opcodes executed by a secure virtua
 
 ### Control Flow Obfuscation
 
-Rewrites method bodies with complex branching logic, preserving behavior while destroying readability.
+Rewrites method bodies with complex branching logic, preserving behavior while destroying readability with touch of CRC Check.
 
 ### Symbols Renaming
 
@@ -92,13 +92,25 @@ Code Virtualization (VM) is only available for **.NET Framework executable** ass
 
 ## Changelog Highlights
 
-## What's New in v6.2.0
+## What's New in v6.3.0
 
 ### 🧬 Code Virtualization
-• Fixed `.NET 6+/CoreCLR` startup crash  
-• Improved runtime detection in the virtualization pipeline to reliably distinguish `.NET Framework` vs `.NET Core/6+`  
+• Fixed invalid IL emission (removed invalid `box` usage on reference types) to prevent `InvalidProgramException` during virtualization  
+• Fixed invalid IL in DirectCall typed-reference handling (proper `TypedReference*` → `TypedRefPtr` conversion) to stop VM crashes on direct `CLR` calls  
+• Reworked `initobj / pointer` write paths to avoid unsupported `IReference.SetValue` scenarios by using safe `TypedReferenceHelpers` instead  
+• Added handling for `byref-like` value types *(e.g., Span-like)* to avoid `ValueTypeBox<>` generic instantiation crashes *(constraint/type-load failures)*  
+• Stabilized JIT hook initialization  
+• Added a compatibility shim for `System.Array` calls when the runtime provides a string instance *(handles `Array.get_Length` and `Array.GetValue(int)` via `string.Length / indexing`)*  
+• Strengthened `dynamic method / proxy` creation to avoid invalid `owner / type` cases on different environments  
+• Some improvements that lead to better `VM` performance
 
-> Result: Now `Code Virtualization` fully supports modern `.NET (Core / 6+)` runtimes alongside `.NET Framework`.
+### 📦 Resources Encryption / Compression
+• Improved protection & stability
+
+### 🐞 Minor Bug Fixes
+• Fixed some bugs in `XML Project` saving & loading
+
+> It's recommended to save a new `XML Project`
 
 ---
 
