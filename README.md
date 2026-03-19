@@ -76,10 +76,6 @@ Wraps assemblies in a native executable container to compress and hide .NET meta
 
 Native wrapping (native packer) is only available for **.NET Framework executable** assemblies.
 
-### Limited VM Support
-
-Code Virtualization (VM) is only available for **.NET Framework executable** assemblies.
-
 ---
 
 ## Compatibility
