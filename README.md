@@ -88,19 +88,13 @@ Native wrapping (native packer) is only available for **.NET Framework executabl
 
 ## Changelog Highlights
 
-## What's New in v6.4.0
+## What's New in v6.5.0
 
-### 🧬 Code Virtualization
-• Fixed a bug in `VM` initialization that could lead to `incompatibility issues` with certain assemblies  
-• Resolved a `runtime type-initialization` edge case that could trigger an `invalid cast` under specific virtualized execution paths  
-• Improved `execution throughput` in the VM core by reducing repeated `dispatch / lookup` overhead  
-• Optimized critical `call-handling` paths used heavily by `compute-intensive` workloads  
-• Added `low-risk fast-path` handling for common framework call patterns to reduce reflection `overhead`  
-• Reduced unnecessary `stack housekeeping` in hot loops to improve sustained performance  
-• Applied `internal caching` improvements to minimize repeated `metadata / decision` costs at runtime  
+### 🌐 Anti HTTP Debug
+• Added `Anti HTTP Debug` protection  
+• Detects any `http debug` attempt  
 
-### 🐞 Anti-Debug
-• Implemented an `Anti-Hook` technique to detect tools like `x64dbg` and `ScyllaHide`
+### 🚀 General Improvements & Fixes
 
 ---
 
