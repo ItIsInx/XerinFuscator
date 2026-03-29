@@ -88,11 +88,30 @@ Native wrapping (native packer) is only available for **.NET Framework executabl
 
 ## Changelog Highlights
 
-## What's New in v6.5.0
+## What's New in v6.6.0
 
-### 🌐 Anti HTTP Debug
-• Added `Anti HTTP Debug` protection  
-• Detects any `http debug` attempt  
+### 🧬 Code Virtualization
+
+**JIT Hook** ⤵  
+• Improved `JIT hardening` and internal `payload` protection flow  
+• Reduced `metadata` exposure around `embedded runtime` data  
+
+**VM** ⤵  
+• Improved security on `vm runtime` for more security on `vm data`  
+
+### 🛡️ Code Encryption
+• Improved `CRC` check with better runtime reliability  
+
+### 🔀 Control Flow
+• Unified and hardened mode `handling + shared` finalize pipeline  
+• Improved `EH/PDB` boundary safety to reduce `runtime/metadata` break risks  
+• Upgraded `switch-key` generation to `cryptographically` secure randomness  
+• Increased `branch/junk` transformation robustness across `control-flow` mangling paths  
+
+### 5️⃣ Integers Encryption
+• Improved `numeric constant` encoding robustness  
+• Added more `internal transformation` diversity  
+• Increased resistance to static analysis with `negligible runtime` impact  
 
 ### 🚀 General Improvements & Fixes
 
