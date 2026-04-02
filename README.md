@@ -88,32 +88,20 @@ Native wrapping (native packer) is only available for **.NET Framework executabl
 
 ## Changelog Highlights
 
-## What's New in v6.6.0
+## What's New in v6.8.0
 
-### 🧬 Code Virtualization
+🔀 **Reference Proxy**
+↓
+**Mild mode** ⤵
+• Improved proxy body structure for better `resilience` against automated analysis tools  
+• Added `rotating predicate` variants with `randomized` selection per proxy  
+• Improved caller `stability` by keeping `predicate logic` fully contained within `proxy scope`  
 
-**JIT Hook** ⤵  
-• Improved `JIT hardening` and internal `payload` protection flow  
-• Reduced `metadata` exposure around `embedded runtime` data  
+📦 **Resources Encryption**
+• Improved **encryption** for better `resilience` against automated analysis tools  
 
-**VM** ⤵  
-• Improved security on `vm runtime` for more security on `vm data`  
-
-### 🛡️ Code Encryption
-• Improved `CRC` check with better runtime reliability  
-
-### 🔀 Control Flow
-• Unified and hardened mode `handling + shared` finalize pipeline  
-• Improved `EH/PDB` boundary safety to reduce `runtime/metadata` break risks  
-• Upgraded `switch-key` generation to `cryptographically` secure randomness  
-• Increased `branch/junk` transformation robustness across `control-flow` mangling paths  
-
-### 5️⃣ Integers Encryption
-• Improved `numeric constant` encoding robustness  
-• Added more `internal transformation` diversity  
-• Increased resistance to static analysis with `negligible runtime` impact  
-
-### 🚀 General Improvements & Fixes
+🌀 **Anti Http Debug**
+• **Fixed** `known bug` that could lead to `false` debugging detection  
 
 ---
 
