@@ -88,20 +88,15 @@ Native wrapping (native packer) is only available for **.NET Framework executabl
 
 ## Changelog Highlights
 
-## What's New in v6.8.0
+## What's New in v6.8.1
 
-🔀 **Reference Proxy**
-↓
-**Mild mode** ⤵
-• Improved proxy body structure for better `resilience` against automated analysis tools  
-• Added `rotating predicate` variants with `randomized` selection per proxy  
-• Improved caller `stability` by keeping `predicate logic` fully contained within `proxy scope`  
+📦 **Imports Protection**
+• **Fixed** `ERROR_PROC_NOT_FOUND (0x7F)` crash when resolving functions from `custom DLLs` with `x86 name` decoration  
+• **Added** function to handle `StdCall (_Func@N)` and `Cdecl (_Func)` decorated export names  
+• `64-bit` DLLs correctly skip `decoration fallback` (no name mangling in x64)  
 
-📦 **Resources Encryption**
-• Improved **encryption** for better `resilience` against automated analysis tools  
-
-🌀 **Anti Http Debug**
-• **Fixed** `known bug` that could lead to `false` debugging detection  
+🐞 **Minor Fixes**
+• Fixed known bugs in `Authenticate` system that could affect some users  
 
 ---
 
