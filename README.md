@@ -88,20 +88,17 @@ Native wrapping (native packer) is only available for **.NET Framework executabl
 
 ## Changelog Highlights
 
-## What's New in v6.9.1
+## What's New in v7.1.1
 
-🔀 **Reference Proxy**
-↓
-**Mild Mode** ⤵
-• **Improved:** `return value` handling to support all managed types correctly  
-• Enhanced type resolution logic for `generic` and composite types  
-• **Fixed:** `instance method` dispatching to ensure correct runtime binding  
-• Stabilized `proxy body` generation across edge cases  
+🧬 **Code Virtualization**
+↓  
+**VM** ⤵  
+- **Resolved:** `exceptions` were incorrectly `wrapped` during VM dispatch, corrupting their type and breaking `catch handlers` matching  
+- **Resolved:** infinite `re-wrapping` loop caused by unhandled exceptions being repeatedly `re-caught` within the same dispatch cycle  
+- **Corrected:** `rethrow propagation` to properly bubble unhandled exceptions up the `call stack`  
+- **Improved:** `exception handling` across all scenarios including `nested handlers`, `loop-scoped catches`, `finally execution order`, and `unhandled propagation`  
 
-🌀 **Control Flow**
-↓
-**Performance Mode** ⤵
-• **Fixed:** `Shuffle loop` caused first two elements to never be `swapped`, making control flow order `predictable`  
+---
 
 > *`Xerinfuscator` Next-Gen .NET Obfuscator* 🛡️  
 
