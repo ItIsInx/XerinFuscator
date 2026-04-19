@@ -90,13 +90,29 @@ Native wrapping (native packer) is only available for **.NET Framework executabl
 
 ## What's New in v7.1.1
 
-🧬 **Code Virtualization**
-↓  
-**VM** ⤵  
-- **Resolved:** `exceptions` were incorrectly `wrapped` during VM dispatch, corrupting their type and breaking `catch handlers` matching  
-- **Resolved:** infinite `re-wrapping` loop caused by unhandled exceptions being repeatedly `re-caught` within the same dispatch cycle  
-- **Corrected:** `rethrow propagation` to properly bubble unhandled exceptions up the `call stack`  
-- **Improved:** `exception handling` across all scenarios including `nested handlers`, `loop-scoped catches`, `finally execution order`, and `unhandled propagation`  
+📦 **Resources Encryption / Compression**
+↓
+**Encryption** ⤵
+- `Per-resource` encryption with `isolated derived keys`
+- `On-demand` decryption → no bulk loading `into memory`
+- Reworked the resource protection `pipeline` to use `per-resource` authenticated encryption with stronger runtime resolution
+
+🔐 **Strings Encryption**
+↓
+**Encryption** ⤵
+- Hardened runtime validation paths  
+- Strengthened cryptographic material handling
+- Improved payload structure and integrity checks.
+
+↓
+**Strings to Array** ⤵
+- Optimized the `string to array` transformation to reduce generated `IL size`
+- Reduced temporary `locals` and `stack overhead` in rewritten methods
+- Simplified the `emitted instruction pattern` for better `performance`
+
+🌀 **Anti HTTP Debug**
+- **Fixed:** a bug that could lead to `false` detection
+- **Implemented:** `anti hook` techniques to detect any `http hook manipulation`
 
 ---
 
