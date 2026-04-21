@@ -88,6 +88,15 @@ Native wrapping (native packer) is only available for **.NET Framework executabl
 
 ## Changelog Highlights
 
+## What's New in v7.1.2
+
+🔠 **Strings Encryption**
+↓
+**String to Array** ⤵ (Bug fixes / Improvements)
+- **Fixed:** string decryption producing wrong characters in some assemblies  
+- **Fixed:** assembly corruption when methods contain `try/catch` blocks  
+- Minor stability improvements  
+
 ## What's New in v7.1.1
 
 📦 **Resources Encryption / Compression**
