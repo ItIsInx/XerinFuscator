@@ -88,40 +88,32 @@ Native wrapping (native packer) is only available for **.NET Framework executabl
 
 ## Changelog Highlights
 
-## What's New in v7.1.2
+## What's New in v7.2.2
 
-🔠 **Strings Encryption**
+🧬 **Code Virtualization**
 ↓
-**String to Array** ⤵ (Bug fixes / Improvements)
-- **Fixed:** string decryption producing wrong characters in some assemblies  
-- **Fixed:** assembly corruption when methods contain `try/catch` blocks  
-- Minor stability improvements  
-
-## What's New in v7.1.1
-
-📦 **Resources Encryption / Compression**
-↓
-**Encryption** ⤵
-- `Per-resource` encryption with `isolated derived keys`
-- `On-demand` decryption → no bulk loading `into memory`
-- Reworked the resource protection `pipeline` to use `per-resource` authenticated encryption with stronger runtime resolution
-
-🔐 **Strings Encryption**
-↓
-**Encryption** ⤵
-- Hardened runtime validation paths  
-- Strengthened cryptographic material handling
-- Improved payload structure and integrity checks.
+**JIT Hook** ⤵
+- **Fix:** `JIT hook` path made fully `lock-free` eliminating `stack guard` page exhaustion  
 
 ↓
-**Strings to Array** ⤵
-- Optimized the `string to array` transformation to reduce generated `IL size`
-- Reduced temporary `locals` and `stack overhead` in rewritten methods
-- Simplified the `emitted instruction pattern` for better `performance`
+**VM** ⤵
+- **Fix:** export table re-keyed by stable `metadata token`, eliminating key misses on repeated assembly loads  
+- **Fix:** module state refreshed per invocation instead of being frozen to the first load  
+- **Fix:** `Costura` dependency resolution for assemblies loaded from byte arrays by preserving and reusing `dnlib` resolver context  
+- **Fix:** `XVM runtime` startup order so `Costura` / embedded dependency resolution runs before VM initialization  
+- **Improve:** generic method resolution hardened with `token-based` fallback  
+- **Improve:** added proper search paths for extracted `Costura` dependencies  
 
-🌀 **Anti HTTP Debug**
-- **Fixed:** a bug that could lead to `false` detection
-- **Implemented:** `anti hook` techniques to detect any `http hook manipulation`
+🔤 **Strings Encryption**
+↓
+**String to Array** ⤵
+- **Fix:** incompatibility issue  
+- **Improve:** optimized `constant` handling (previously re-emitted per character in low IL instructions) for better performance and lower impact  
+
+🛡️ **General**
+↓
+**Runtime** ⤵
+- **Fix:** incompatibility issue with `Windows 7`  
 
 ---
 
