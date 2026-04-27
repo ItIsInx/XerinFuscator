@@ -88,32 +88,36 @@ Native wrapping (native packer) is only available for **.NET Framework executabl
 
 ## Changelog Highlights
 
-## What's New in v7.2.2
+## What's New in v7.3.2 - 27/4/2026
 
 🧬 **Code Virtualization**
 ↓
 **JIT Hook** ⤵
-- **Fix:** `JIT hook` path made fully `lock-free` eliminating `stack guard` page exhaustion  
+- **Improved:** jit `struct` copy sizing with `sizeof(CORINFO_METHOD_INFO)`  
+- **Fixed:** `Windows 7 / .NET Framework` delegate pointer compatibility  
 
 ↓
 **VM** ⤵
-- **Fix:** export table re-keyed by stable `metadata token`, eliminating key misses on repeated assembly loads  
-- **Fix:** module state refreshed per invocation instead of being frozen to the first load  
-- **Fix:** `Costura` dependency resolution for assemblies loaded from byte arrays by preserving and reusing `dnlib` resolver context  
-- **Fix:** `XVM runtime` startup order so `Costura` / embedded dependency resolution runs before VM initialization  
-- **Improve:** generic method resolution hardened with `token-based` fallback  
-- **Improve:** added proper search paths for extracted `Costura` dependencies  
+- **Improved:** enhanced security in `vm runtime` to better protect `vm data`  
+- **Fixed:** weak / incorrect VM `EntryKey` and `ExitKey` generation  
+- **Fixed:** vm `byref/pointer` return handling including `ref int*` and `ref int**`  
+- **Fixed:** raw pointer-backed `byref` returns causing `NullReferenceException`  
+- **Fixed:** `TypedReference` layout handling  
 
 🔤 **Strings Encryption**
 ↓
-**String to Array** ⤵
-- **Fix:** incompatibility issue  
-- **Improve:** optimized `constant` handling (previously re-emitted per character in low IL instructions) for better performance and lower impact  
+**Strings Encryption** ⤵
+- **Improved:** optimized string protection `output` size  
+- **Improved:** encrypted string `table` handling  
+- **Fixed:** unnecessary `max-stack` inflation  
 
-🛡️ **General**
 ↓
-**Runtime** ⤵
-- **Fix:** incompatibility issue with `Windows 7`  
+**String to Array** ⤵
+- **Improved:** much lighter `generated IL` and cleaner `MaxStack` handling  
+- **Improved:** reduced string obfuscation `code bloat`  
+- **Improved:** cleaner `MaxStack` handling  
+- **Fixed:** `exception` handler target remapping safety  
+- **Fixed:** incorrect `object` local for `char[]`  
 
 ---
 
