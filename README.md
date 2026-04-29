@@ -88,36 +88,50 @@ Native wrapping (native packer) is only available for **.NET Framework executabl
 
 ## Changelog Highlights
 
-## What's New in v7.3.2 - 27/4/2026
+## What's New in v7.4.2 - 29/04/2026
 
 🧬 **Code Virtualization**
 ↓
-**JIT Hook** ⤵
-- **Improved:** jit `struct` copy sizing with `sizeof(CORINFO_METHOD_INFO)`  
-- **Fixed:** `Windows 7 / .NET Framework` delegate pointer compatibility  
-
-↓
 **VM** ⤵
-- **Improved:** enhanced security in `vm runtime` to better protect `vm data`  
-- **Fixed:** weak / incorrect VM `EntryKey` and `ExitKey` generation  
-- **Fixed:** vm `byref/pointer` return handling including `ref int*` and `ref int**`  
-- **Fixed:** raw pointer-backed `byref` returns causing `NullReferenceException`  
-- **Fixed:** `TypedReference` layout handling  
+**Improvements** ⤵
+- Enhanced `VM` and `runtime` hardening to reduce exposed `runtime` state and improve resistance against `analysis`  
+- Improved protected `data` handling by minimizing persistent plaintext in `memory`  
+- Reduced visible `internal` markers in generated protected output  
+- Updated `VM` execution `key handling` for stronger `dispatch` consistency  
 
-🔤 **Strings Encryption**
+**JIT** ⤵
+**Improvements** ⤵
+- Strengthened `JIT` payload validation, storage, and cleanup behavior  
+
+🛡️ **Code Encryption**
 ↓
-**Strings Encryption** ⤵
-- **Improved:** optimized string protection `output` size  
-- **Improved:** encrypted string `table` handling  
-- **Fixed:** unnecessary `max-stack` inflation  
+**Improvements** ⤵
+- Enhanced code protection reliability and runtime hardening  
+- Strengthened integrity validation and `key derivation`  
+- Improved protected `section` handling and `memory` safety  
+- Reduced exposure of protected code during runtime `analysis`  
 
 ↓
-**String to Array** ⤵
-- **Improved:** much lighter `generated IL` and cleaner `MaxStack` handling  
-- **Improved:** reduced string obfuscation `code bloat`  
-- **Improved:** cleaner `MaxStack` handling  
-- **Fixed:** `exception` handler target remapping safety  
-- **Fixed:** incorrect `object` local for `char[]`  
+**Fixes** ⤵
+- **Fixed:** initialization and section processing edge cases  
+
+🧪 **Anti Dump**
+↓
+**Improvements** ⤵
+- Improved AntiDump `metadata` hardening while preserving runtime `entry point` resolution  
+- Restored safe immediate `corruption scope` to avoid breaking encrypted assembly startup  
+- Added delayed deep `metadata` corruption for some `tables heap` after initialization  
+- Added safer `metadata parsing` helpers with bounds guards for `stream names` and version length  
+
+↓
+**Fixes** ⤵
+- **Fixed:** metadata stream count parsing to use proper `ushort` reads  
+
+📦 **Resources Encryption**
+↓
+**Encryption** ⤵
+**Fixes** ⤵
+- **Fixed:** incompatibility bug with `WPF` assemblies  
 
 ---
 
