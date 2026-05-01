@@ -88,50 +88,56 @@ Native wrapping (native packer) is only available for **.NET Framework executabl
 
 ## Changelog Highlights
 
-## What's New in v7.4.2 - 29/04/2026
+## What's New in v7.5.2 - 01/05/2026
 
 🧬 **Code Virtualization**
 ↓
-**VM** ⤵
+**VM**
+↓
 **Improvements** ⤵
-- Enhanced `VM` and `runtime` hardening to reduce exposed `runtime` state and improve resistance against `analysis`  
-- Improved protected `data` handling by minimizing persistent plaintext in `memory`  
+- Improved `VM` pipeline reliability and initialization handling  
+- Hardened protected `payload` validation and `integrity` checks  
 - Reduced visible `internal` markers in generated protected output  
 - Updated `VM` execution `key handling` for stronger `dispatch` consistency  
+- Added `fast switch dispatcher` for `hot` VM `opcodes` for better performance  
+- Reworked `VMStack` into a `contiguous` growable `array`  
+
+**Fixes** ⤵
+- **Fixed:** edge cases in `constant` decoding and `metadata` handling  
 
 **JIT** ⤵
 **Improvements** ⤵
-- Strengthened `JIT` payload validation, storage, and cleanup behavior  
+- Improved `JIT` pipeline reliability and initialization handling  
+- Improved `method body` tracking for `JIT` protected `targets`  
 
-🛡️ **Code Encryption**
+🔤 **Renamer**
 ↓
 **Improvements** ⤵
-- Enhanced code protection reliability and runtime hardening  
-- Strengthened integrity validation and `key derivation`  
-- Improved protected `section` handling and `memory` safety  
-- Reduced exposure of protected code during runtime `analysis`  
+- Reduced `Analyzer` to a `minimal` metadata-safety gate instead of broadly excluding many symbols  
+- Added `WPF/XAML/BAML` aware `preservation` for `referenced types, members, settings, dependency properties, routed events, and common WPF UI contracts`  
+- Added `JSON/DataContract` support by preserving serialized member names through `attributes` where safe  
+- Added protection for `SettingsBase/ApplicationSettingsBase` members to prevent runtime settings `lookup` failures  
+- Added `reflection, dynamic binder, ldtoken, WinForms binding, and Costura` compatibility handling  
+- Preserved `virtual/interface/abstract` member contracts to avoid `dispatch` and metadata `binding` issues  
+- Updated `BamlPreserver` to properly read `.g.resources` using `ResourceReader`  
 
-↓
-**Fixes** ⤵
-- **Fixed:** initialization and section processing edge cases  
-
-🧪 **Anti Dump**
+🔣 **Constants Mover**
 ↓
 **Improvements** ⤵
-- Improved AntiDump `metadata` hardening while preserving runtime `entry point` resolution  
-- Restored safe immediate `corruption scope` to avoid breaking encrypted assembly startup  
-- Added delayed deep `metadata` corruption for some `tables heap` after initialization  
-- Added safer `metadata parsing` helpers with bounds guards for `stream names` and version length  
+- Protected generated `storage` initializers from later transformations  
+- Added `internal marker` for `ConstantsMover` storage types  
 
+🌀 **Control Flow**
+↓
+**Performance Mode**
 ↓
 **Fixes** ⤵
-- **Fixed:** metadata stream count parsing to use proper `ushort` reads  
+- **Fixed:** incompatibility `stack-balance` bug with `code virtualization`  
 
-📦 **Resources Encryption**
+🚀 **Xerin Runtime**
 ↓
-**Encryption** ⤵
-**Fixes** ⤵
-- **Fixed:** incompatibility bug with `WPF` assemblies  
+**Improvements** ⤵
+- Improved `runtime` to show messages if any `reverse engineering` attempt is detected  
 
 ---
 
