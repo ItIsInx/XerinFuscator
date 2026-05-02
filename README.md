@@ -38,7 +38,7 @@ Prevents any http debug attemp on your assembly.
 
 ### Anti-Hook/Tampering
 
-Detecting any hook or tampering attempt being done on assembly.
+Detecting any hook or tampering attempt that being done on assembly.
 
 ### Resources Encryption/Compressor
 
