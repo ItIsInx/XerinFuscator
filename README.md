@@ -16,6 +16,10 @@ Encrypts critical code sections and decrypts them only at runtime, ensuring that
 
 Protects numeric constants with optimized XOR-based encryption algorithms to prevent static value analysis.
 
+### Strings Protection
+
+Encrypts strings using advanced algorithms with compression and caching for optimal performance.
+
 ### Anti-Decompiling
 
 Prevents source code decompilation using advanced anti-IL and metadata protection layers.
@@ -28,7 +32,15 @@ Detects and prevents runtime debugging attempts, terminating execution when debu
 
 Blocks memory extraction and dumping of protected assemblies to stop runtime code theft.
 
-### Resources Encryption
+### Anti-Http-Debugging
+
+Prevents any http debug attemp on your assembly.
+
+### Anti-Hook/Tampering
+
+Detecting any hook or tampering attempt being done on assembly.
+
+### Resources Encryption/Compressor
 
 Encrypts embedded resources (such as images, files, and configurations) and decrypts them securely at runtime.
 
@@ -39,6 +51,10 @@ Protects and hides imported functions and API calls from being easily identified
 ### Enum Protection
 
 Encrypts and scrambles enum values to prevent logical inference and analysis of your application’s control paths.
+
+### Code Mutation
+
+Transforms IL instructions by replacing simple operations with complex equivalent sequences, converting constants to encrypted forms, and injecting junk code while maintaining identical runtime behavior.
 
 ### Constants Mover
 
@@ -67,6 +83,8 @@ Renames classes, methods, and fields to unreadable names (including Unicode and 
 ### Native Packer
 
 Wraps assemblies in a native executable container to compress and hide .NET metadata.
+
+### And many more!
 
 ---
 
