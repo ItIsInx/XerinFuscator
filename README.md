@@ -106,56 +106,24 @@ Native wrapping (native packer) is only available for **.NET Framework executabl
 
 ## Changelog Highlights
 
-## What's New in v7.5.2 - 01/05/2026
+## What's New in v7.6.2
 
 🧬 **Code Virtualization**
 ↓
-**VM**
-↓
+**VM** ⤵
 **Improvements** ⤵
-- Improved `VM` pipeline reliability and initialization handling  
-- Hardened protected `payload` validation and `integrity` checks  
-- Reduced visible `internal` markers in generated protected output  
-- Updated `VM` execution `key handling` for stronger `dispatch` consistency  
-- Added `fast switch dispatcher` for `hot` VM `opcodes` for better performance  
-- Reworked `VMStack` into a `contiguous` growable `array`  
+- Hardened invocation `proxy` generation for `edge-case` method `owners`  
+- Preserved existing `VM` execution behavior while improving `compatibility` with broader `.NET assembly` patterns  
+- General improvements on `VM runtime`  
 
-**Fixes** ⤵
-- **Fixed:** edge cases in `constant` decoding and `metadata` handling  
-
-**JIT** ⤵
-**Improvements** ⤵
-- Improved `JIT` pipeline reliability and initialization handling  
-- Improved `method body` tracking for `JIT` protected `targets`  
-
-🔤 **Renamer**
-↓
-**Improvements** ⤵
-- Reduced `Analyzer` to a `minimal` metadata-safety gate instead of broadly excluding many symbols  
-- Added `WPF/XAML/BAML` aware `preservation` for `referenced types, members, settings, dependency properties, routed events, and common WPF UI contracts`  
-- Added `JSON/DataContract` support by preserving serialized member names through `attributes` where safe  
-- Added protection for `SettingsBase/ApplicationSettingsBase` members to prevent runtime settings `lookup` failures  
-- Added `reflection, dynamic binder, ldtoken, WinForms binding, and Costura` compatibility handling  
-- Preserved `virtual/interface/abstract` member contracts to avoid `dispatch` and metadata `binding` issues  
-- Updated `BamlPreserver` to properly read `.g.resources` using `ResourceReader`  
-
-🔣 **Constants Mover**
-↓
-**Improvements** ⤵
-- Protected generated `storage` initializers from later transformations  
-- Added `internal marker` for `ConstantsMover` storage types  
-
-🌀 **Control Flow**
-↓
-**Performance Mode**
 ↓
 **Fixes** ⤵
-- **Fixed:** incompatibility `stack-balance` bug with `code virtualization`  
+- **Fixed:** some incompatibility bugs  
 
-🚀 **Xerin Runtime**
+🛡️ **Code Encryption**
 ↓
-**Improvements** ⤵
-- Improved `runtime` to show messages if any `reverse engineering` attempt is detected  
+**Fixes** ⤵
+- **Fixed:** incompatibility issue with `code virtualization`  
 
 ---
 
