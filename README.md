@@ -106,24 +106,20 @@ Native wrapping (native packer) is only available for **.NET Framework executabl
 
 ## Changelog Highlights
 
-## What's New in v7.6.2
+## What's New in v7.7.2
 
 🧬 **Code Virtualization**
 ↓
 **VM** ⤵
 **Improvements** ⤵
-- Hardened invocation `proxy` generation for `edge-case` method `owners`  
-- Preserved existing `VM` execution behavior while improving `compatibility` with broader `.NET assembly` patterns  
-- General improvements on `VM runtime`  
+- Reduced VM startup overhead with `per-module` initialization caching  
+- Cached VM `constants`, `opcode tables`, and `vcall` tables per runtime instance  
+- Optimized `external call` handling with cached dynamic invocation `bridges`  
+- Reduced repeated `reflection metadata` lookups in call dispatch  
+- Expanded fast-path VM dispatch for common `arithmetic`, `comparison`, `bitwise`, and `shift` operations  
 
-↓
 **Fixes** ⤵
-- **Fixed:** some incompatibility bugs  
-
-🛡️ **Code Encryption**
-↓
-**Fixes** ⤵
-- **Fixed:** incompatibility issue with `code virtualization`  
+- **Fixed:** corrected edge-case numeric behavior for `64-bit` signed division and floating-point remainder  
 
 ---
 
