@@ -106,7 +106,7 @@ Native wrapping (native packer) is only available for **.NET Framework executabl
 
 ## Changelog Highlights
 
-## What's New in v7.7.2
+## What's New in v7.7.2 - 03/05/2026
 
 🧬 **Code Virtualization**
 ↓
