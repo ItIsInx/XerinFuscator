@@ -106,20 +106,23 @@ Native wrapping (native packer) is only available for **.NET Framework executabl
 
 ## Changelog Highlights
 
-## What's New in v7.7.2 - 03/05/2026
+## What's New in v7.8.3 - 04/05/2026
 
 🧬 **Code Virtualization**
 ↓
 **VM** ⤵
 **Improvements** ⤵
-- Reduced VM startup overhead with `per-module` initialization caching  
-- Cached VM `constants`, `opcode tables`, and `vcall` tables per runtime instance  
-- Optimized `external call` handling with cached dynamic invocation `bridges`  
-- Reduced repeated `reflection metadata` lookups in call dispatch  
-- Expanded fast-path VM dispatch for common `arithmetic`, `comparison`, `bitwise`, and `shift` operations  
+- Improved VM runtime `performance` for `heavy` computational workloads and `loop-intensive` virtualized methods  
+- Optimized internal dispatch and runtime call handling to reduce execution overhead  
+- Enhanced array operation handling for better compatibility and speed across common managed array patterns  
+- Improved stability for byte-array and primitive-array mutation scenarios  
 
+🧪 **Anti Dump**
+↓
 **Fixes** ⤵
-- **Fixed:** corrected edge-case numeric behavior for `64-bit` signed division and floating-point remainder  
+- **Fixed:** AntiDump breaking embedded resource loading  
+- Skipped delayed deep metadata corruption when `ManifestResource` entries exist  
+- Preserved resource-safe startup while keeping basic metadata wiping  
 
 ---
 
