@@ -106,23 +106,41 @@ Native wrapping (native packer) is only available for **.NET Framework executabl
 
 ## Changelog Highlights
 
-## What's New in v7.8.3 - 04/05/2026
+## What's New in v7.9.4 - 08/05/2026
 
-🧬 **Code Virtualization**
+🔤 **Renamer**
 ↓
-**VM** ⤵
 **Improvements** ⤵
-- Improved VM runtime `performance` for `heavy` computational workloads and `loop-intensive` virtualized methods  
-- Optimized internal dispatch and runtime call handling to reduce execution overhead  
-- Enhanced array operation handling for better compatibility and speed across common managed array patterns  
-- Improved stability for byte-array and primitive-array mutation scenarios  
+- Added `ResourceManager` string fixups after `type/namespace` renaming  
+- Allowed `Properties.Settings` type/namespace renaming while preserving member compatibility  
+- Added `WPF` type/namespace renaming support with `BAML` resource patching  
 
-🧪 **Anti Dump**
-↓
 **Fixes** ⤵
-- **Fixed:** AntiDump breaking embedded resource loading  
-- Skipped delayed deep metadata corruption when `ManifestResource` entries exist  
-- Preserved resource-safe startup while keeping basic metadata wiping  
+- **Fixed:** renaming for `Properties.Resources` types by avoiding false preservation from `typeof(Resources).Assembly`  
+- **Fixed:** `WinForms` type renaming when `ComponentResourceManager(typeof(Form))` is used  
+- **Fixed:** `MemberRef` references after `field/method` renaming to prevent `MissingFieldException`  
+
+🇽 **Strings Encryption**
+↓
+**Improvements** ⤵
+- Added handler for `const / field strings`  
+
+**Fixes** ⤵
+- **Fixed:** moved constants by `Constant Mover` not being string encrypted  
+
+5️⃣ **Integers Encryption**
+↓
+**Improvements** ⤵
+- Added handler for `const / field ints`  
+
+**Fixes** ⤵
+- **Fixed:** moved constants by `Constant Mover` not being int encrypted  
+
+📦 **Resources Encryption**
+↓
+**Encryption** ⤵
+**Fixes** ⤵
+- **Fixed:** incompatibility bug in runtime with `.NET Core` assemblies  
 
 ---
 
