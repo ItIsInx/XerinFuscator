@@ -106,23 +106,31 @@ Native wrapping (native packer) is only available for **.NET Framework executabl
 
 ## Changelog Highlights
 
-## What's New in v8.0.4 - 10/05/2026
+## What's New in v8.1.5 - 14/05/2026
 
-🪝 **Anti Hook**
+🧬 **Code Virtualization**
 ↓
-**Fixes** ⤵
-- **Fixed:** conflict with some `anti viruses`  
-
-🔠 **Renamer**
+**VM**
 ↓
 **Improvements** ⤵
-- Added automatic `JSON` detection for public `properties`  
-- Preserves original `JSON` field names by injecting `serialization attributes` before renaming properties  
+- Improved `ILAST construction` by pruning unreachable/dead IL blocks before virtualization  
+- Improved `boxing` support for non-primitive value types to prevent `invalid cast` issues during VM execution  
 
 **Fixes** ⤵
-- **Fixed:** property renaming breaking `JSON deserialization`  
-- **Fixed:** cases where `data fields` became `null or 0` after obfuscation  
----
+- **Fixed:** runtime array storage failures by unwrapping internal VM value-type boxes before `Array.SetValue/stelem` operations  
+
+🌀 **Anti Hook**
+↓
+**Fixes** ⤵
+- **Fixed:** conflict with some `anti viruses` (safe)  
+
+⚡ **General Improvements**
+↓
+- Improved UI performance  
+
+🐞 **Minor Fixes**
+↓
+- **Fixed:** hotfix in `XML` project loading  
 
 > *`Xerinfuscator` Next-Gen .NET Obfuscator* 🛡️  
 
