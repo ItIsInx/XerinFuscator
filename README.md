@@ -106,31 +106,29 @@ Native wrapping (native packer) is only available for **.NET Framework executabl
 
 ## Changelog Highlights
 
-## What's New in v8.1.5 - 14/05/2026
+## What's New in v8.2.5 - 19/05/2026
 
-🧬 **Code Virtualization**
+🔠 **Strings Encryption**
 ↓
-**VM**
+**Fixes** ⤵
+- **Fixed:** incompatibility bug with `Unity` assemblies  
+
+🌀 **Control Flow**
 ↓
 **Improvements** ⤵
-- Improved `ILAST construction` by pruning unreachable/dead IL blocks before virtualization  
-- Improved `boxing` support for non-primitive value types to prevent `invalid cast` issues during VM execution  
+- **Improved:** more balanced stack, better performance, and extra security  
 
 **Fixes** ⤵
-- **Fixed:** runtime array storage failures by unwrapping internal VM value-type boxes before `Array.SetValue/stelem` operations  
+- **Fixed:** incompatibility bug with `Unity` assemblies  
 
-🌀 **Anti Hook**
+🔠 **Renamer**
 ↓
+**Improvements** ⤵
+- Improved renamer compatibility with `DataContractJsonSerializer`  
+- Automatically preserves original `JSON field` names for nested serialized DTOs during property renaming  
+
 **Fixes** ⤵
-- **Fixed:** conflict with some `anti viruses` (safe)  
-
-⚡ **General Improvements**
-↓
-- Improved UI performance  
-
-🐞 **Minor Fixes**
-↓
-- **Fixed:** hotfix in `XML` project loading  
+- **Fixed:** cases where renamed properties caused deserialized values issues  
 
 > *`Xerinfuscator` Next-Gen .NET Obfuscator* 🛡️  
 
