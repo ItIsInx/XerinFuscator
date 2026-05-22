@@ -106,29 +106,23 @@ Native wrapping (native packer) is only available for **.NET Framework executabl
 
 ## Changelog Highlights
 
-## What's New in v8.2.5 - 19/05/2026
-
-🔠 **Strings Encryption**
-↓
-**Fixes** ⤵
-- **Fixed:** incompatibility bug with `Unity` assemblies  
-
-🌀 **Control Flow**
-↓
-**Improvements** ⤵
-- **Improved:** more balanced stack, better performance, and extra security  
-
-**Fixes** ⤵
-- **Fixed:** incompatibility bug with `Unity` assemblies  
+## What's New in v8.3.5 - 22/05/2026
 
 🔠 **Renamer**
 ↓
-**Improvements** ⤵
-- Improved renamer compatibility with `DataContractJsonSerializer`  
-- Automatically preserves original `JSON field` names for nested serialized DTOs during property renaming  
-
 **Fixes** ⤵
-- **Fixed:** cases where renamed properties caused deserialized values issues  
+- **Fixed:** duplicate `JsonPropertyNameAttribute` injection during property renaming  
+
+**Improvements** ⤵
+- Made `System.Text.Json` handling idempotent by respecting existing `[JsonPropertyName]` attributes and preventing duplicate injection  
+- Improved serialized-name detection for `System.Text.Json` contracts  
+
+🌀 **Reference Proxy**
+↓
+**Mild Mode**
+↓
+**Fixes** ⤵
+- **Fixed:** bug with internal methods proxying  
 
 > *`Xerinfuscator` Next-Gen .NET Obfuscator* 🛡️  
 
