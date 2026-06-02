@@ -106,23 +106,28 @@ Native wrapping (native packer) is only available for **.NET Framework executabl
 
 ## Changelog Highlights
 
-## What's New in v8.3.5 - 22/05/2026
+## What's New in v8.3.6 - 02/06/2026
 
-🔠 **Renamer**
+⚙️ **Xerin Core**
 ↓
 **Fixes** ⤵
-- **Fixed:** duplicate `JsonPropertyNameAttribute` injection during property renaming  
+- **Fixed:** premature `Dispose` inside context
+- **Fixed:** hardened final cleanup for context
 
+↓
 **Improvements** ⤵
-- Made `System.Text.Json` handling idempotent by respecting existing `[JsonPropertyName]` attributes and preventing duplicate injection  
-- Improved serialized-name detection for `System.Text.Json` contracts  
+- Added `Costura` extracted files cleanup after obfuscation
 
-🌀 **Reference Proxy**
+🧩 **Enum Protection**
 ↓
-**Mild Mode**
+**Improvements** ⤵
+- Reworked `enum` processing from per-enum full assembly scans to a single indexed pass
+
+🔤 **Renamer**
 ↓
-**Fixes** ⤵
-- **Fixed:** bug with internal methods proxying  
+**Improvements** ⤵
+- Cached module `types`, `methods`, and `assembly references`
+- Optimized `BAML` preservation lookups
 
 > *`Xerinfuscator` Next-Gen .NET Obfuscator* 🛡️  
 
