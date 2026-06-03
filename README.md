@@ -106,28 +106,46 @@ Native wrapping (native packer) is only available for **.NET Framework executabl
 
 ## Changelog Highlights
 
-## What's New in v8.3.6 - 02/06/2026
+## What's New in v8.4.6 - 04/06/2026
 
-⚙️ **Xerin Core**
+🧬 **Code Virtualization**
 ↓
+**VM**
+↓
+**Improvements** ⤵
+- Improved VM `execution path` and reduced `external file` dependency  
+- Reduced external dependency `footprint`  
+- Hardened sensitive execution paths  
+- Improved `VM runtime` execution flow  
+
+🔗 **Imports Protection**
+↓
+**Improvements** ⤵
+- Added `UnmanagedCallConvAttribute` support  
+- Improved `A/W` fallback based on original `CharSet`  
+- Respected `NoMangle/exact` import names  
+- Added ordinal import support  
+
 **Fixes** ⤵
-- **Fixed:** premature `Dispose` inside context
-- **Fixed:** hardened final cleanup for context
+- **Fixed:** `LibraryImport` string marshalling handling  
+- **Fixed:** forwarded export resolution  
 
+🧬 **Strings Encryption**
 ↓
 **Improvements** ⤵
-- Added `Costura` extracted files cleanup after obfuscation
+- Improved constant string handling  
+- Improved strings protection stability  
+- Hardened protected string data handling  
+- Optimized random data generation flow  
 
-🧩 **Enum Protection**
+**Fixes** ⤵
+- **Fixed:** edge cases in encoded string indexing  
+
+🌀 **Control Flow**
 ↓
 **Improvements** ⤵
-- Reworked `enum` processing from per-enum full assembly scans to a single indexed pass
-
-🔤 **Renamer**
-↓
-**Improvements** ⤵
-- Cached module `types`, `methods`, and `assembly references`
-- Optimized `BAML` preservation lookups
+- Removed direct `Control Flow` handle calls from Control Flow manglers  
+- Improved Control Flow mangling  
 
 > *`Xerinfuscator` Next-Gen .NET Obfuscator* 🛡️  
 
