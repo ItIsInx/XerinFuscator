@@ -106,46 +106,29 @@ Native wrapping (native packer) is only available for **.NET Framework executabl
 
 ## Changelog Highlights
 
-## What's New in v8.4.6 - 04/06/2026
+## What's New in v8.5.7 - 05/06/2026
+
+⚙️ **Xerin Core**
+↓
+**Fixes** ⤵
+- **Fixed:** XML project virtualization selection restore and method `token` handling
 
 🧬 **Code Virtualization**
 ↓
-**VM**
-↓
+**VM** ⤵
 **Improvements** ⤵
-- Improved VM `execution path` and reduced `external file` dependency  
-- Reduced external dependency `footprint`  
-- Hardened sensitive execution paths  
-- Improved `VM runtime` execution flow  
-
-🔗 **Imports Protection**
-↓
-**Improvements** ⤵
-- Added `UnmanagedCallConvAttribute` support  
-- Improved `A/W` fallback based on original `CharSet`  
-- Respected `NoMangle/exact` import names  
-- Added ordinal import support  
+- Hardened internal VM dispatch execution paths  
+- Internal VM pipeline improvements  
+- Runtime stability refinements  
+- Data handling hardening  
 
 **Fixes** ⤵
-- **Fixed:** `LibraryImport` string marshalling handling  
-- **Fixed:** forwarded export resolution  
-
-🧬 **Strings Encryption**
-↓
-**Improvements** ⤵
-- Improved constant string handling  
-- Improved strings protection stability  
-- Hardened protected string data handling  
-- Optimized random data generation flow  
-
-**Fixes** ⤵
-- **Fixed:** edge cases in encoded string indexing  
+- **Fixed:** minor execution flow issues  
 
 🌀 **Control Flow**
 ↓
-**Improvements** ⤵
-- Removed direct `Control Flow` handle calls from Control Flow manglers  
-- Improved Control Flow mangling  
+**Fixes** ⤵
+- **Fixed:** Control Flow EH handling — `try/catch/finally` blocks are now mangled as well  
 
 > *`Xerinfuscator` Next-Gen .NET Obfuscator* 🛡️  
 
