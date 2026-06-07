@@ -106,29 +106,23 @@ Native wrapping (native packer) is only available for **.NET Framework executabl
 
 ## Changelog Highlights
 
-## What's New in v8.5.7 - 05/06/2026
+## What's New in v8.6.7 - 08/06/2026
 
-⚙️ **Xerin Core**
+🔄 **Dynamic Ctor**
 ↓
-**Fixes** ⤵
-- **Fixed:** XML project virtualization selection restore and method `token` handling
-
-🧬 **Code Virtualization**
-↓
-**VM** ⤵
 **Improvements** ⤵
-- Hardened internal VM dispatch execution paths  
-- Internal VM pipeline improvements  
-- Runtime stability refinements  
-- Data handling hardening  
+- Improved runtime emission reliability  
+- Reduced obvious call patterns  
+- Cleaned unsupported edge case handling  
 
-**Fixes** ⤵
-- **Fixed:** minor execution flow issues  
-
-🌀 **Control Flow**
+🔡 **Renamer**
 ↓
 **Fixes** ⤵
-- **Fixed:** Control Flow EH handling — `try/catch/finally` blocks are now mangled as well  
+- **Fixed:** `System.Text.Json` property renaming with `JsonNamingPolicy.CamelCase`
+
+↓
+**Improvements** ⤵
+- Preserved correct `JSON` names  
 
 > *`Xerinfuscator` Next-Gen .NET Obfuscator* 🛡️  
 
