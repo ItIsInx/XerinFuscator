@@ -106,23 +106,34 @@ Native wrapping (native packer) is only available for **.NET Framework executabl
 
 ## Changelog Highlights
 
-## What's New in v8.6.7 - 08/06/2026
+## What's New in v8.7.7 - 08/06/2026
 
-🔄 **Dynamic Ctor**
+⚙️ **Xerin Core**
 ↓
 **Improvements** ⤵
-- Improved runtime emission reliability  
-- Reduced obvious call patterns  
-- Cleaned unsupported edge case handling  
+- Improved security on `injected runtimes`
+
+⚡ **Code Optimization**
+↓
+**New** ⤵
+- Added `dead code removal` option
+
+↓
+**Improvements** ⤵
+- Reworked optimizer to edit instructions in place
+- Removed unsafe constant field deletion
+- Improved dnlib method comparison using `SigComparer`
+- Added branch simplify/optimize in optimizer flow
+- Prevented duplicate `UnverifiableCodeAttribute`
+
+↓
+**Fixes** ⤵
+- **Fixed:** optimizer IL rewrite for `ldarga/ldloca`
 
 🔡 **Renamer**
 ↓
-**Fixes** ⤵
-- **Fixed:** `System.Text.Json` property renaming with `JsonNamingPolicy.CamelCase`
-
-↓
-**Improvements** ⤵
-- Preserved correct `JSON` names  
+**New** ⤵
+- Added renamed metadata validation check protection
 
 > *`Xerinfuscator` Next-Gen .NET Obfuscator* 🛡️  
 
