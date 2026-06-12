@@ -106,34 +106,36 @@ Native wrapping (native packer) is only available for **.NET Framework executabl
 
 ## Changelog Highlights
 
-## What's New in v8.7.7 - 08/06/2026
+## What's New in v8.8.7 - 12/06/2026
 
 ⚙️ **Xerin Core**
 ↓
-**Improvements** ⤵
-- Improved security on `injected runtimes`
+**Fixes** ⤵
+- Fixed not loading some settings from `XML` project
 
-⚡ **Code Optimization**
-↓
-**New** ⤵
-- Added `dead code removal` option
-
+🔢 **Enum Protection**
 ↓
 **Improvements** ⤵
-- Reworked optimizer to edit instructions in place
-- Removed unsafe constant field deletion
-- Improved dnlib method comparison using `SigComparer`
-- Added branch simplify/optimize in optimizer flow
-- Prevented duplicate `UnverifiableCodeAttribute`
+- Added `EmitBoxForEnum` to box `returns` as correct `underlying` type (fixes `ulong` enums)
+- Added `Rewriter` handler with temp long local for `Enum.TryParse<T>`
 
 ↓
 **Fixes** ⤵
-- **Fixed:** optimizer IL rewrite for `ldarga/ldloca`
+- Fixed `Rewriter` handler to skip extra `arg instructions` between `ldtoken` and `Enum` call
+- Fixed `stack` order (`arrays before ldloca`) in generic `TryParse` replacement
 
-🔡 **Renamer**
+🔤 **Renamer**
 ↓
 **New** ⤵
-- Added renamed metadata validation check protection
+- Added new renaming schemes to renamer:
+  - `Rome` scheme
+  - `Octal` scheme
+  - `Binary` scheme
+
+↓
+**Fixes** ⤵
+- Fixed a mismatch issue in `ValidateRenameMap` protection with `Imports protection`
+- Fixed `Update Instruction Strings` to update `method` name strings passed as `arguments` to `method calls` when preceded by a `renamed type` name string
 
 > *`Xerinfuscator` Next-Gen .NET Obfuscator* 🛡️  
 
