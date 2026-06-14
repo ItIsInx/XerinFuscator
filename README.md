@@ -106,36 +106,28 @@ Native wrapping (native packer) is only available for **.NET Framework executabl
 
 ## Changelog Highlights
 
-## What's New in v8.8.7 - 12/06/2026
+## What's New in v8.9.7 - 14/06/2026
 
 ⚙️ **Xerin Core**
 ↓
 **Fixes** ⤵
-- Fixed not loading some settings from `XML` project
+- Fixed loading `anti crack webhook` from `XML` projects
 
-🔢 **Enum Protection**
+🔢 **Control Flow**
+↓
+**Ultra Performance Preset**
 ↓
 **Improvements** ⤵
-- Added `EmitBoxForEnum` to box `returns` as correct `underlying` type (fixes `ulong` enums)
-- Added `Rewriter` handler with temp long local for `Enum.TryParse<T>`
-
-↓
-**Fixes** ⤵
-- Fixed `Rewriter` handler to skip extra `arg instructions` between `ldtoken` and `Enum` call
-- Fixed `stack` order (`arrays before ldloca`) in generic `TryParse` replacement
+- Upgraded `dispatcher routing` to execute block transitions in `constant time`, eliminating CPU overhead in `large methods`
+- Streamlined `state tracking` by reducing variable usage and simplifying `key decoding` math to minimize instruction footprint per block jump
+- Optimized block `headers` by removing redundant instructions, reducing overall `binary size`
 
 🔤 **Renamer**
 ↓
-**New** ⤵
-- Added new renaming schemes to renamer:
-  - `Rome` scheme
-  - `Octal` scheme
-  - `Binary` scheme
-
+**Analyzer**
 ↓
 **Fixes** ⤵
-- Fixed a mismatch issue in `ValidateRenameMap` protection with `Imports protection`
-- Fixed `Update Instruction Strings` to update `method` name strings passed as `arguments` to `method calls` when preceded by a `renamed type` name string
+- Fixed analyzer to only match strings that exist as actual renamed `type` output names, preventing false positives with arbitrary strings
 
 > *`Xerinfuscator` Next-Gen .NET Obfuscator* 🛡️  
 
