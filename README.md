@@ -106,28 +106,26 @@ Native wrapping (native packer) is only available for **.NET Framework executabl
 
 ## Changelog Highlights
 
-## What's New in v8.9.7 - 14/06/2026
+## What's New in v8.9.8 - 16/06/2026
 
-⚙️ **Xerin Core**
+⚙️ **Xerin's Core**
 ↓
-**Fixes** ⤵
-- Fixed loading `anti crack webhook` from `XML` projects
-
-🔢 **Control Flow**
-↓
-**Ultra Performance Preset**
+**Bytes Compression**
 ↓
 **Improvements** ⤵
-- Upgraded `dispatcher routing` to execute block transitions in `constant time`, eliminating CPU overhead in `large methods`
-- Streamlined `state tracking` by reducing variable usage and simplifying `key decoding` math to minimize instruction footprint per block jump
-- Optimized block `headers` by removing redundant instructions, reducing overall `binary size`
+- Improved `hash` function with a `16-bit` table, reducing collisions
+- Improved match finding through `lazy matching` in `optimal` mode
 
 🔤 **Renamer**
 ↓
 **Analyzer**
 ↓
+**Improvements** ⤵
+- Added `FormCollection` indexer detection to the `TypeLookup` function
+
+↓
 **Fixes** ⤵
-- Fixed analyzer to only match strings that exist as actual renamed `type` output names, preventing false positives with arbitrary strings
+- Fixed `Update Instruction Strings` to resolve simple type names immediately after the full name check
 
 > *`Xerinfuscator` Next-Gen .NET Obfuscator* 🛡️  
 
