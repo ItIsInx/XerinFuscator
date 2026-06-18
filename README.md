@@ -131,7 +131,6 @@ Native wrapping (native packer) is only available for **.NET Framework executabl
 **Improvements** ⤵
 - Hardened opaque predicates
 - Expanded predicate coverage across dispatch transitions
-- Unified shared logic across modes, removing dead code and output bloat
 
 🔤 **Strings Encryption**
 ↓
