@@ -106,26 +106,65 @@ Native wrapping (native packer) is only available for **.NET Framework executabl
 
 ## Changelog Highlights
 
-## What's New in v8.9.8 - 16/06/2026
+## What's New in v8.9.9 - 18/06/2026
 
 ⚙️ **Xerin's Core**
 ↓
-**Bytes Compression**
-↓
-**Improvements** ⤵
-- Improved `hash` function with a `16-bit` table, reducing collisions
-- Improved match finding through `lazy matching` in `optimal` mode
+**Runtime** ⤵
+- Improved `AV/EDR` compatibility of the protection response layer; trigger behavior no longer relies on flagged system components
 
-🔤 **Renamer**
-↓
-**Analyzer**
+🧬 **Code Virtualization**
 ↓
 **Improvements** ⤵
-- Added `FormCollection` indexer detection to the `TypeLookup` function
+- Hardened per-build `key/seed` generation; protection material is no longer statically derivable
+- Optimized the hottest paths in the `execution core` for lower per-operation overhead
+- Streamlined the low-level runtime decode path
+- Profiled execution routes and tuned the engine based on measured results
+
+🛡️ **Integrity Check**
+↓
+**Improvements** ⤵
+- Strengthened the integrity verification layer and unified its algorithm
+
+🔀 **Control Flow**
+↓
+**Improvements** ⤵
+- Hardened opaque predicates
+- Expanded predicate coverage across dispatch transitions
+- Unified shared logic across modes, removing dead code and output bloat
+
+🔤 **Strings Encryption**
+↓
+**Improvements** ⤵
+- Stronger encryption: per-payload keys are now bound to additional per-message entropy
+- Const strings are no longer exposed in metadata and are resolved through the protected runtime path
 
 ↓
 **Fixes** ⤵
-- Fixed `Update Instruction Strings` to resolve simple type names immediately after the full name check
+- Fixed internal pipeline ordering; sensitive buffers are now properly cleared
+
+🔢 **Enum Protection**
+↓
+**Improvements** ⤵
+- Improved reflection coverage
+- Reworked protection to safely cover additional call shapes across all underlying integer types
+- Added dataflow checks that automatically preserve enums whose layout is exposed at runtime
+
+↓
+**Fixes** ⤵
+- Resolved edge cases that could corrupt output on certain enum usages; reflection helpers now emit verifiable code
+
+🔗 **Imports Protection**
+↓
+**Improvements** ⤵
+- Resolved conflicting entries across suffix hint sets
+- Removed functions without `A/W` variants from the suffix list and eliminated duplicates
+- Missing marshalling flags are now extracted from metadata and written to generated delegates
+- `UTF-8` marshalling no longer triggers `A/W` suffix logic
+
+↓
+**Fixes** ⤵
+- Fixed `x64 PE` support in the decorated export scanner
 
 > *`Xerinfuscator` Next-Gen .NET Obfuscator* 🛡️  
 
