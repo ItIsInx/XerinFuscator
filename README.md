@@ -106,64 +106,75 @@ Native wrapping (native packer) is only available for **.NET Framework executabl
 
 ## Changelog Highlights
 
-## What's New in v8.9.9 - 18/06/2026
+## What's New in v9.0.0 - 22/06/2026
+
+🎨 **UI Improvements**
+↓
+**Improvements** ⤵
+- Improved the `user interface`
+- Various UI refinements and usability improvements
 
 ⚙️ **Xerin's Core**
 ↓
-**Runtime** ⤵
-- Improved `AV/EDR` compatibility of the protection response layer; trigger behavior no longer relies on flagged system components
+**New** ⤵
+- Added dedicated sections for `vouches` and `bug reports`, allowing users to submit feedback directly through the `Xerinfuscator` GUI
+
+↓
+**Improvements** ⤵
+- Improved the core to automatically reload and dispose assemblies after obfuscation is completed
+- General performance and stability improvements
+
+↓
+**Fixes** ⤵
+- Fixed various minor issues
 
 🧬 **Code Virtualization**
 ↓
-**Improvements** ⤵
-- Hardened per-build `key/seed` generation; protection material is no longer statically derivable
-- Optimized the hottest paths in the `execution core` for lower per-operation overhead
-- Streamlined the low-level runtime decode path
-- Profiled execution routes and tuned the engine based on measured results
+**JIT**
+↓
+**New** ⤵
+- Expanded runtime coverage for code-level protection; the `NecroBit` layer now supports additional target platforms beyond the classic desktop runtime
+- Added a new low-level execution backend for modern targets
 
-🛡️ **Integrity Check**
 ↓
 **Improvements** ⤵
-- Strengthened the integrity verification layer and unified its algorithm
+- Improved runtime initialization reliability across a wider range of host environments
+- Reduced startup overhead with tighter, self-contained bootstrapping of the protection layer
+- Hardened metadata handling for protected method bodies
 
-🔀 **Control Flow**
+↓
+**Fixes** ⤵
+- General compatibility and robustness fixes across supported platforms
+
+🌀 **Reference Proxy**
+↓
+**Delegate**
 ↓
 **Improvements** ⤵
-- Hardened opaque predicates
-- Expanded predicate coverage across dispatch transitions
+- Removed dead per-init `StackTrace` loop
+
+↓
+**Fixes** ⤵
+- `DynamicMethod` is now anchored to `mscorlib`, fixing `VerificationException: Operation could destabilize the runtime` in applications using transparent libraries
+- Added `castclass` emission for interface arguments as well (`IsClass` is false for interfaces)
 
 🔤 **Strings Encryption**
 ↓
-**Improvements** ⤵
-- Stronger encryption: per-payload keys are now bound to additional per-message entropy
-- Const strings are no longer exposed in metadata and are resolved through the protected runtime path
+**New** ⤵
+- Strings Encryption now removes plaintext default values from optional string parameters (e.g. `string x = "value"`), preventing exposure through `ParamDef` metadata not covered by IL/const protection passes
 
+🔤 **Renamer**
 ↓
-**Fixes** ⤵
-- Fixed internal pipeline ordering; sensitive buffers are now properly cleared
-
-🔢 **Enum Protection**
+**Analyzer**
 ↓
 **Improvements** ⤵
-- Improved reflection coverage
-- Reworked protection to safely cover additional call shapes across all underlying integer types
-- Added dataflow checks that automatically preserve enums whose layout is exposed at runtime
+- `Json Analyzer` `ToJsonCamelCase` now matches .NET's `JsonNamingPolicy.CamelCase`
+- `Replace Baml String` now replaces complete tokens only
 
+🌀 **Dynamic Ctor**
 ↓
 **Fixes** ⤵
-- Resolved edge cases that could corrupt output on certain enum usages; reflection helpers now emit verifiable code
-
-🔗 **Imports Protection**
-↓
-**Improvements** ⤵
-- Resolved conflicting entries across suffix hint sets
-- Removed functions without `A/W` variants from the suffix list and eliminated duplicates
-- Missing marshalling flags are now extracted from metadata and written to generated delegates
-- `UTF-8` marshalling no longer triggers `A/W` suffix logic
-
-↓
-**Fixes** ⤵
-- Fixed `x64 PE` support in the decorated export scanner
+- Resolved an intermittent crash in `Dynamic Ctor` protection
 
 > *`Xerinfuscator` Next-Gen .NET Obfuscator* 🛡️  
 
