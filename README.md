@@ -106,75 +106,30 @@ Native wrapping (native packer) is only available for **.NET Framework executabl
 
 ## Changelog Highlights
 
-## What's New in v9.0.0 - 22/06/2026
-
-🎨 **UI Improvements**
-↓
-**Improvements** ⤵
-- Improved the `user interface`
-- Various UI refinements and usability improvements
-
-⚙️ **Xerin's Core**
-↓
-**New** ⤵
-- Added dedicated sections for `vouches` and `bug reports`, allowing users to submit feedback directly through the `Xerinfuscator` GUI
-
-↓
-**Improvements** ⤵
-- Improved the core to automatically reload and dispose assemblies after obfuscation is completed
-- General performance and stability improvements
-
-↓
-**Fixes** ⤵
-- Fixed various minor issues
+## What's New in v9.0.1 - 26/06/2026
 
 🧬 **Code Virtualization**
 ↓
-**JIT**
-↓
-**New** ⤵
-- Expanded runtime coverage for code-level protection; the `NecroBit` layer now supports additional target platforms beyond the classic desktop runtime
-- Added a new low-level execution backend for modern targets
-
+**VM**
 ↓
 **Improvements** ⤵
-- Improved runtime initialization reliability across a wider range of host environments
-- Reduced startup overhead with tighter, self-contained bootstrapping of the protection layer
-- Hardened metadata handling for protected method bodies
+- Improved `JIT hook` stability and reliability on `.NET`
+- Enhanced memory safety in the VM `execution engine`
+- Strengthened in-memory data protection for sensitive `runtime state`
 
+↓
+**Native Runtime**
 ↓
 **Fixes** ⤵
-- General compatibility and robustness fixes across supported platforms
+- Fixed native runtime crash (`0xE0434352`) on systems without the `x86/x64 VC++ Redistributable`; `XVM.Native` now links the CRT statically (`/MT`), leaving `KERNEL32.dll` as its only runtime dependency
+- Fixed native runtime crash (`0xC0000005`) on systems with `Memory Integrity (HVCI)` enabled; the JIT vtable hook now uses structured exception handling to gracefully recover when the OS blocks `VirtualProtect`
+- Fixed `SEH` exception handling stability in the native runtime on `x64`
 
-🌀 **Reference Proxy**
-↓
-**Delegate**
+⏳ **Trial Protection**
 ↓
 **Improvements** ⤵
-- Removed dead per-init `StackTrace` loop
-
-↓
-**Fixes** ⤵
-- `DynamicMethod` is now anchored to `mscorlib`, fixing `VerificationException: Operation could destabilize the runtime` in applications using transparent libraries
-- Added `castclass` emission for interface arguments as well (`IsClass` is false for interfaces)
-
-🔤 **Strings Encryption**
-↓
-**New** ⤵
-- Strings Encryption now removes plaintext default values from optional string parameters (e.g. `string x = "value"`), preventing exposure through `ParamDef` metadata not covered by IL/const protection passes
-
-🔤 **Renamer**
-↓
-**Analyzer**
-↓
-**Improvements** ⤵
-- `Json Analyzer` `ToJsonCamelCase` now matches .NET's `JsonNamingPolicy.CamelCase`
-- `Replace Baml String` now replaces complete tokens only
-
-🌀 **Dynamic Ctor**
-↓
-**Fixes** ⤵
-- Resolved an intermittent crash in `Dynamic Ctor` protection
+- Improved trial accuracy and reliability
+- Hardened protection against system clock tampering
 
 > *`Xerinfuscator` Next-Gen .NET Obfuscator* 🛡️  
 
