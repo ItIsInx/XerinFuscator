@@ -106,30 +106,17 @@ Native wrapping (native packer) is only available for **.NET Framework executabl
 
 ## Changelog Highlights
 
-## What's New in v9.0.1 - 26/06/2026
+## What's New in v9.0.2 - 03/07/2026
 
 🧬 **Code Virtualization**
 ↓
-**VM**
+**Improvements** ⤵
+- Hardened security of the `VM Runtime`
+
+🔤 **Strings Encryption**
 ↓
 **Improvements** ⤵
-- Improved `JIT hook` stability and reliability on `.NET`
-- Enhanced memory safety in the VM `execution engine`
-- Strengthened in-memory data protection for sensitive `runtime state`
-
-↓
-**Native Runtime**
-↓
-**Fixes** ⤵
-- Fixed native runtime crash (`0xE0434352`) on systems without the `x86/x64 VC++ Redistributable`; `XVM.Native` now links the CRT statically (`/MT`), leaving `KERNEL32.dll` as its only runtime dependency
-- Fixed native runtime crash (`0xC0000005`) on systems with `Memory Integrity (HVCI)` enabled; the JIT vtable hook now uses structured exception handling to gracefully recover when the OS blocks `VirtualProtect`
-- Fixed `SEH` exception handling stability in the native runtime on `x64`
-
-⏳ **Trial Protection**
-↓
-**Improvements** ⤵
-- Improved trial accuracy and reliability
-- Hardened protection against system clock tampering
+- Hardened the strings runtime engine for better resilience
 
 > *`Xerinfuscator` Next-Gen .NET Obfuscator* 🛡️  
 
