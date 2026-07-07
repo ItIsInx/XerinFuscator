@@ -106,17 +106,27 @@ Native wrapping (native packer) is only available for **.NET Framework executabl
 
 ## Changelog Highlights
 
-## What's New in v9.0.2 - 03/07/2026
+## What's New in v9.0.3 - 07/07/2026
 
-🧬 **Code Virtualization**
+🧬 **Code Mutation**
 ↓
 **Improvements** ⤵
-- Hardened security of the `VM Runtime`
+- Improved mutation mangling techniques for increased complexity
 
-🔤 **Strings Encryption**
 ↓
-**Improvements** ⤵
-- Hardened the strings runtime engine for better resilience
+**Fixes** ⤵
+- Fixed a bug in the code mutation execution core
+
+⚙️ **XerinSDK**
+↓
+**New** ⤵
+- Added new attributes to `XerinSDK`:
+  - `XerinSDK.ExcludeClassFromObfuscation` — Excludes an entire class from obfuscation
+  - `XerinSDK.ExcludeClassFromControlFlow` — Excludes an entire class from Control Flow obfuscation
+  - `XerinSDK.ExcludeClassFromRenaming` — Excludes an entire class from Renaming obfuscation
+  - `XerinSDK.ExcludeMethodFromObfuscation` — Excludes a method from obfuscation
+  - `XerinSDK.ExcludeMethodFromControlFlow` — Excludes a method from Control Flow obfuscation
+  - `XerinSDK.ExcludeMethodFromRenaming` — Excludes a method from Renaming obfuscation
 
 > *`Xerinfuscator` Next-Gen .NET Obfuscator* 🛡️  
 
