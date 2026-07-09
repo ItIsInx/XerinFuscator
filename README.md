@@ -106,27 +106,31 @@ Native wrapping (native packer) is only available for **.NET Framework executabl
 
 ## Changelog Highlights
 
-## What's New in v9.0.3 - 07/07/2026
+## What's New in v9.0.4 - 09/07/2026
 
-🧬 **Code Mutation**
+⚙️ **Xerin's Core**
+↓
+**Runtime** ⤵
+- Improved the protection layer on injected runtimes inside the target assembly
+
+🧬 **Code Virtualization**
 ↓
 **Improvements** ⤵
-- Improved mutation mangling techniques for increased complexity
+- Improved runtime initialization reliability
+- Refined VM dispatch internals for better consistency
+- Reduced exposure of internal runtime metadata
+- Cleaned up several VM instruction handling paths
+- General stability and maintenance improvements
 
+🧩 **Enum Protection**
 ↓
-**Fixes** ⤵
-- Fixed a bug in the code mutation execution core
+**Improvements** ⤵
+- Reworked enum processing for better indexing and improved conversion performance
 
-⚙️ **XerinSDK**
+🛡️ **Integrity Check**
 ↓
-**New** ⤵
-- Added new attributes to `XerinSDK`:
-  - `XerinSDK.ExcludeClassFromObfuscation` — Excludes an entire class from obfuscation
-  - `XerinSDK.ExcludeClassFromControlFlow` — Excludes an entire class from Control Flow obfuscation
-  - `XerinSDK.ExcludeClassFromRenaming` — Excludes an entire class from Renaming obfuscation
-  - `XerinSDK.ExcludeMethodFromObfuscation` — Excludes a method from obfuscation
-  - `XerinSDK.ExcludeMethodFromControlFlow` — Excludes a method from Control Flow obfuscation
-  - `XerinSDK.ExcludeMethodFromRenaming` — Excludes a method from Renaming obfuscation
+**Improvements** ⤵
+- Reworked and strengthened the integrity verification layer while unifying its algorithm
 
 > *`Xerinfuscator` Next-Gen .NET Obfuscator* 🛡️  
 
