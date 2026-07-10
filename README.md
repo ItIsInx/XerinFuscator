@@ -106,31 +106,29 @@ Native wrapping (native packer) is only available for **.NET Framework executabl
 
 ## Changelog Highlights
 
-## What's New in v9.0.4 - 09/07/2026
+## What's New in v9.0.5 - 10/07/2026
 
-⚙️ **Xerin's Core**
+🔀 **Control Flow**
 ↓
-**Runtime** ⤵
-- Improved the protection layer on injected runtimes inside the target assembly
+**Fixes** ⤵
+- Fixed Control Flow exception handler region rebuilding for methods with multiple exception handlers
 
-🧬 **Code Virtualization**
+🔤 **Renamer**
 ↓
-**Improvements** ⤵
-- Improved runtime initialization reliability
-- Refined VM dispatch internals for better consistency
-- Reduced exposure of internal runtime metadata
-- Cleaned up several VM instruction handling paths
-- General stability and maintenance improvements
-
-🧩 **Enum Protection**
+**Analyzer**
 ↓
 **Improvements** ⤵
-- Reworked enum processing for better indexing and improved conversion performance
+- Improved analyzer performance
 
-🛡️ **Integrity Check**
 ↓
-**Improvements** ⤵
-- Reworked and strengthened the integrity verification layer while unifying its algorithm
+**Fixes** ⤵
+- Fixed several bugs in the `Analyzer` that could slow down the analysis process
+- Fixed `Rename Map` validation failures caused by the VM re-parenting nested types after renaming
+
+🔄 **Local to Field**
+↓
+**Fixes** ⤵
+- Fixed `Local to Field` compatibility with Visual Basic, including VB infrastructure and compiler-generated code
 
 > *`Xerinfuscator` Next-Gen .NET Obfuscator* 🛡️  
 
