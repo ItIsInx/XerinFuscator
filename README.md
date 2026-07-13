@@ -106,7 +106,7 @@ Native wrapping (native packer) is only available for **.NET Framework executabl
 
 ## Changelog Highlights
 
-**Xerinfuscator v9.0.6 released**          July 13rd, 2026
+**Xerinfuscator v9.0.6 released** — July 13rd, 2026
 
 🧬 **Code Virtualization**
 ↓
