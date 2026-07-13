@@ -106,29 +106,34 @@ Native wrapping (native packer) is only available for **.NET Framework executabl
 
 ## Changelog Highlights
 
-## What's New in v9.0.5 - 10/07/2026
+**Xerinfuscator v9.0.6 released**          July 13rd, 2026
 
-🔀 **Control Flow**
+🧬 **Code Virtualization**
+↓
+**VM** ⤵
+**Improvements** ⤵
+• **Improved** VM virtualization `stability` and `consistency`
+• **Improved** deterministic VM `data generation`
+• **Improved** generated VM `entry stub` reliability
 ↓
 **Fixes** ⤵
-- Fixed Control Flow exception handler region rebuilding for methods with multiple exception handlers
+• **Fixed** intermittent `corruption` during `repeated` virtualization runs
+• **Fixed** unstable VM `metadata/header` serialization order
 
-🔤 **Renamer**
+🔤 Renamer
 ↓
-**Analyzer**
+Analyzer
+↓
+Improvements ⤵
+• **Updated** `Renamer` to handle `property/event` accessor methods `semantically`
+• `Property` rename now also `renames` matching `get_ / set_` methods
+• `Event` rename now also `renames` matching `add_ / remove_ / raise_` methods
+• **Prevented** `generic` method renaming from randomly touching `SpecialName` methods
+
+🔀 Control Flow
 ↓
 **Improvements** ⤵
-- Improved analyzer performance
-
-↓
-**Fixes** ⤵
-- Fixed several bugs in the `Analyzer` that could slow down the analysis process
-- Fixed `Rename Map` validation failures caused by the VM re-parenting nested types after renaming
-
-🔄 **Local to Field**
-↓
-**Fixes** ⤵
-- Fixed `Local to Field` compatibility with Visual Basic, including VB infrastructure and compiler-generated code
+• **Improved** `Control Flow` compatibility with `VB.NET/EH-heavy` assemblies by avoiding unsafe `dispatcher injection` after terminal `IL instructions`
 
 > *`Xerinfuscator` Next-Gen .NET Obfuscator* 🛡️  
 
