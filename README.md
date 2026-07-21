@@ -106,34 +106,59 @@ Native wrapping (native packer) is only available for **.NET Framework executabl
 
 ## Changelog Highlights
 
-**Xerinfuscator v9.0.6 released** — July 13rd, 2026
+**Xerinfuscator v9.0.7 released**                 July 21rd, 2026
 
-🧬 **Code Virtualization**
+⚙️ **Xerin Core**
 ↓
-**VM** ⤵
 **Improvements** ⤵
-• **Improved** VM virtualization `stability` and `consistency`
-• **Improved** deterministic VM `data generation`
-• **Improved** generated VM `entry stub` reliability
-↓
-**Fixes** ⤵
-• **Fixed** intermittent `corruption` during `repeated` virtualization runs
-• **Fixed** unstable VM `metadata/header` serialization order
+• **Improved** `Native` runtime DLLs now load directly from `memory` without writing `temporary files` to disk
+• **Ctor hider:** Core Engine Fix > Resolved intermittent assembly load failure `TypeLoadException` caused by static initializer `RVA` mapping issues
 
-🔤 Renamer
+🧬 Code Virtualization
 ↓
-Analyzer
+VM ⤵
+Improvements ⤵
+• **Improved** VM `execution speed` via `CPU register` pinning `(IP/K1)` and `zero-copy` stack slot access
+• **Hardened** internal instruction `dispatch` and runtime state `evaluation`
+• **Upgraded** internal `numerical representation` and `processing routines`
+• **Enhanced** dynamic key `sequencing` and `state propagation` security
+↓
+Fixes ⤵
+• **Fixed** assembly startup `crashes` and `TypeLoadException` caused by unoptimized helper `method RVAs`
+
+🛡️ Code Encryption
 ↓
 Improvements ⤵
-• **Updated** `Renamer` to handle `property/event` accessor methods `semantically`
-• `Property` rename now also `renames` matching `get_ / set_` methods
-• `Event` rename now also `renames` matching `add_ / remove_ / raise_` methods
-• **Prevented** `generic` method renaming from randomly touching `SpecialName` methods
+• **Improved** memory permission handling
+• **Improved** protection engine synchronization
+↓
+Fixes ⤵
+• **multi-threading** initialization crashes
 
-🔀 Control Flow
+🔤 Strings Encryption
+↓
+Improvements ⤵
+• **Hardened String Vault Isolation**: Refined runtime string `extraction` against `dynamic analysis` and `reflection proxies`
+• **Enhanced Memory Safety**
+• **Improved Cryptographic Randomness**
+Fixes ⤵
+• **Engine Stability Fixes**
+
+🔀 **Control Flow**
 ↓
 **Improvements** ⤵
-• **Improved** `Control Flow` compatibility with `VB.NET/EH-heavy` assemblies by avoiding unsafe `dispatcher injection` after terminal `IL instructions`
+• **Improved** `runtime` state handling across all `Control Flow` modes
+• **Enhanced** `state key` protection and `method level` variation
+• **Reduced** recognizable `patterns` while `preserving` performance
+• **General** `stability` and `compatibility` improvements
+• **Upgraded** `flow` obfuscation `algorithms` for increased security against `reverse engineering`
+• **Refactored** internal `execution paths` to ensure `maximum` runtime `speed and stability`
+• **General** `stability` and `compatibility` improvements
+
+🌀 Reference Proxy
+↓
+Fixes ⤵
+• **Fixed** internal calls not being proxied
 
 > *`Xerinfuscator` Next-Gen .NET Obfuscator* 🛡️  
 
