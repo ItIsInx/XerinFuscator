@@ -106,59 +106,20 @@ Native wrapping (native packer) is only available for **.NET Framework executabl
 
 ## Changelog Highlights
 
-**Xerinfuscator v9.0.7 released**                 July 21rd, 2026
+## What's New in v9.0.8 - July 22rd, 2026
 
-⚙️ **Xerin Core**
+🧬 **Code Virtualization**
+↓
+**VM**
 ↓
 **Improvements** ⤵
-• **Improved** `Native` runtime DLLs now load directly from `memory` without writing `temporary files` to disk
-• **Ctor hider:** Core Engine Fix > Resolved intermittent assembly load failure `TypeLoadException` caused by static initializer `RVA` mapping issues
+- Improved Core VM execution throughput through aggressive inlining on hot instruction dispatch paths
+- Improved basic block serialization speed during compilation using multi-core parallel processing
+- Refactored exception handling and stack unwinding logic by decoupling them from the main VM dispatcher loop
 
-🧬 Code Virtualization
 ↓
-VM ⤵
-Improvements ⤵
-• **Improved** VM `execution speed` via `CPU register` pinning `(IP/K1)` and `zero-copy` stack slot access
-• **Hardened** internal instruction `dispatch` and runtime state `evaluation`
-• **Upgraded** internal `numerical representation` and `processing routines`
-• **Enhanced** dynamic key `sequencing` and `state propagation` security
-↓
-Fixes ⤵
-• **Fixed** assembly startup `crashes` and `TypeLoadException` caused by unoptimized helper `method RVAs`
-
-🛡️ Code Encryption
-↓
-Improvements ⤵
-• **Improved** memory permission handling
-• **Improved** protection engine synchronization
-↓
-Fixes ⤵
-• **multi-threading** initialization crashes
-
-🔤 Strings Encryption
-↓
-Improvements ⤵
-• **Hardened String Vault Isolation**: Refined runtime string `extraction` against `dynamic analysis` and `reflection proxies`
-• **Enhanced Memory Safety**
-• **Improved Cryptographic Randomness**
-Fixes ⤵
-• **Engine Stability Fixes**
-
-🔀 **Control Flow**
-↓
-**Improvements** ⤵
-• **Improved** `runtime` state handling across all `Control Flow` modes
-• **Enhanced** `state key` protection and `method level` variation
-• **Reduced** recognizable `patterns` while `preserving` performance
-• **General** `stability` and `compatibility` improvements
-• **Upgraded** `flow` obfuscation `algorithms` for increased security against `reverse engineering`
-• **Refactored** internal `execution paths` to ensure `maximum` runtime `speed and stability`
-• **General** `stability` and `compatibility` improvements
-
-🌀 Reference Proxy
-↓
-Fixes ⤵
-• **Fixed** internal calls not being proxied
+**Fixes** ⤵
+- Resolved exception forwarding compatibility issues during dynamic reflection calls
 
 > *`Xerinfuscator` Next-Gen .NET Obfuscator* 🛡️  
 
