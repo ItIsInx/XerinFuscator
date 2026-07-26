@@ -106,20 +106,38 @@ Native wrapping (native packer) is only available for **.NET Framework executabl
 
 ## Changelog Highlights
 
-## What's New in v9.0.8 - July 22rd, 2026
+## What's New in v9.0.9 - 26/07/2026
+
+⚙️ **Xerin Core**
+↓
+**Fixes** ⤵
+- **Fixed** an issue where loaded `assembly` files remained `locked` after `loading` or `obfuscation`
 
 🧬 **Code Virtualization**
 ↓
 **VM**
 ↓
 **Improvements** ⤵
-- Improved Core VM execution throughput through aggressive inlining on hot instruction dispatch paths
-- Improved basic block serialization speed during compilation using multi-core parallel processing
-- Refactored exception handling and stack unwinding logic by decoupling them from the main VM dispatcher loop
+- **Improved** Execution Speed: Optimized the `VM loop` for significantly faster instruction `execution`
+- **Faster Assembly** Processing: Added `multi-core parallelization` for `high-speed` virtualization
+
+🔤 **Strings Encryption**
+↓
+**Improvements** ⤵
+- **Runtime Speed:** Boosted `string lookup` performance by removing `stack-walking`
+- **Concurrency:** Enabled `lock-free parallel multi-threading` using `SRW Locks`
+- **Crypto Engine:** Inlined `low-level` transforms for maximum `native speed`
+
+🔀 **Control Flow**
+↓
+**New** ⤵
+- **Added** 4 Control Flow `levels`
 
 ↓
-**Fixes** ⤵
-- Resolved exception forwarding compatibility issues during dynamic reflection calls
+**Improvements** ⤵
+- **Runtime & Execution Acceleration:** Optimized `bytecode interpretation` logic and internal dispatch `pipelines`, eliminating framework interop `latency` and `reflection overhead`
+- **Control Flow & JIT Optimization:** Refined `control flow graph transformations` with `multi-tiered` conditional branching while maintaining `strict` JIT `stack` integrity and `zero-cost` loop `execution`
+- **Bytecode Footprint Reduction:** Stripped redundant `instruction` bloat and unnecessary runtime `allocations` for a leaner `binary footprint` and faster overall `execution`
 
 > *`Xerinfuscator` Next-Gen .NET Obfuscator* 🛡️  
 
