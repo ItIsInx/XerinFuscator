@@ -106,38 +106,43 @@ Native wrapping (native packer) is only available for **.NET Framework executabl
 
 ## Changelog Highlights
 
-## What's New in v9.0.9 - 26/07/2026
+## What's New in v9.1.0 - 03/08/2026
 
 ⚙️ **Xerin Core**
 ↓
-**Fixes** ⤵
-- **Fixed** an issue where loaded `assembly` files remained `locked` after `loading` or `obfuscation`
+**Improvements** ⤵
+- **Improved** Code Virtualization function selection
+- **General** core improvements
 
 🧬 **Code Virtualization**
 ↓
 **VM**
 ↓
 **Improvements** ⤵
-- **Improved** Execution Speed: Optimized the `VM loop` for significantly faster instruction `execution`
-- **Faster Assembly** Processing: Added `multi-core parallelization` for `high-speed` virtualization
+- **Hardened** VM runtime security
 
-🔤 **Strings Encryption**
+↓
+**Fixes** ⤵
+- **Fixed** `NullReferenceException` in `SaveRegistersTransform` when virtualizing methods with unassigned or discarded return registers
+
+🛡️ **Native Packer**
 ↓
 **Improvements** ⤵
-- **Runtime Speed:** Boosted `string lookup` performance by removing `stack-walking`
-- **Concurrency:** Enabled `lock-free parallel multi-threading` using `SRW Locks`
-- **Crypto Engine:** Inlined `low-level` transforms for maximum `native speed`
+- **Improved** .NET to C++ Converter (Packer): expanded compatibility to support almost any .NET assembly, including `WinForms`, `WPF`, `Console` applications, and more
+- **Improved** security of converted assemblies
 
-🔀 **Control Flow**
 ↓
-**New** ⤵
-- **Added** 4 Control Flow `levels`
+**Fixes** ⤵
+- **Fixed** some bugs in the packer
 
+🚨 **Anti Crack**
 ↓
 **Improvements** ⤵
-- **Runtime & Execution Acceleration:** Optimized `bytecode interpretation` logic and internal dispatch `pipelines`, eliminating framework interop `latency` and `reflection overhead`
-- **Control Flow & JIT Optimization:** Refined `control flow graph transformations` with `multi-tiered` conditional branching while maintaining `strict` JIT `stack` integrity and `zero-cost` loop `execution`
-- **Bytecode Footprint Reduction:** Stripped redundant `instruction` bloat and unnecessary runtime `allocations` for a leaner `binary footprint` and faster overall `execution`
+- **General** Anti Crack improvements
+
+↓
+**Fixes** ⤵
+- **Fixed** some minor bugs
 
 > *`Xerinfuscator` Next-Gen .NET Obfuscator* 🛡️  
 
