@@ -106,43 +106,17 @@ Native wrapping (native packer) is only available for **.NET Framework executabl
 
 ## Changelog Highlights
 
-## What's New in v9.1.0 - 03/08/2026
-
-⚙️ **Xerin Core**
-↓
-**Improvements** ⤵
-- **Improved** Code Virtualization function selection
-- **General** core improvements
-
-🧬 **Code Virtualization**
-↓
-**VM**
-↓
-**Improvements** ⤵
-- **Hardened** VM runtime security
-
-↓
-**Fixes** ⤵
-- **Fixed** `NullReferenceException` in `SaveRegistersTransform` when virtualizing methods with unassigned or discarded return registers
+## What's New in v9.2.0 - 04/08/2026
 
 🛡️ **Native Packer**
 ↓
-**Improvements** ⤵
-- **Improved** .NET to C++ Converter (Packer): expanded compatibility to support almost any .NET assembly, including `WinForms`, `WPF`, `Console` applications, and more
-- **Improved** security of converted assemblies
+**Fixes** ⤵
+- **Fixed** an issue where administrator privileges were lost after packing the assembly
 
+📦 **Resources Encryption**
 ↓
 **Fixes** ⤵
-- **Fixed** some bugs in the packer
-
-🚨 **Anti Crack**
-↓
-**Improvements** ⤵
-- **General** Anti Crack improvements
-
-↓
-**Fixes** ⤵
-- **Fixed** some minor bugs
+- **Fixed** `System.OutOfMemoryException` during resource encryption by optimizing memory buffer allocations and stream usage in `ResourcesEncoder`
 
 > *`Xerinfuscator` Next-Gen .NET Obfuscator* 🛡️  
 
