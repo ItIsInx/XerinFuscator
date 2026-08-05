@@ -106,17 +106,23 @@ Native wrapping (native packer) is only available for **.NET Framework executabl
 
 ## Changelog Highlights
 
-## What's New in v9.2.0 - 04/08/2026
+## What's New in v9.3.0 - 05/08/2026
+
+⚙️ **Xerin Core**
+↓
+**Improvements** ⤵
+- **General** core improvements for a faster obfuscation process
+
+↓
+**Fixes** ⤵
+- **Minor** core bug fixes to resolve `OutOfMemoryException`
+- **Fixed** a bug while loading functions in the VM tree
 
 🛡️ **Native Packer**
 ↓
 **Fixes** ⤵
-- **Fixed** an issue where administrator privileges were lost after packing the assembly
-
-📦 **Resources Encryption**
-↓
-**Fixes** ⤵
-- **Fixed** `System.OutOfMemoryException` during resource encryption by optimizing memory buffer allocations and stream usage in `ResourcesEncoder`
+- **Fixed** MSVC detection by adding the `-prerelease` flag to detect Visual Studio Preview C++ Build Tools
+- **Fixed** Admin Icon & UAC: transferred the original PE Manifest (Type 24) to preserve the Administrator shield icon and execution privileges
 
 > *`Xerinfuscator` Next-Gen .NET Obfuscator* 🛡️  
 
