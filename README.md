@@ -106,19 +106,24 @@ Native wrapping (native packer) is only available for **.NET Framework executabl
 
 ## Changelog Highlights
 
-## What's New in v9.4.0 - 06/08/2026
+## What's New in v9.5.0 - 08/08/2026
 
 ⚙️ **Xerin Core**
 ↓
+**Improvements** ⤵
+- **Improved** core's module writing options
+
+🛡️ **Native Packer**
+↓
 **Fixes** ⤵
-- **Fixed** `InvalidOperationException` in `MutationHelper` by updating IL tracing to use `IsLdarg()`, `IsLdloc()`, and `IsLdcI4()`, while safely handling empty `.Min()` calls
-- **Fixed** an incompatibility issue between `Code Encryption` and the `Native Packer`
+- **Fixed** `System.OutOfMemoryException` by removing conflicting `PreserveBlobOffsets` when re-writing modified assemblies
 
 🧬 **Code Virtualization**
 ↓
+**VM**
+↓
 **Fixes** ⤵
-- **Fixed** `InvalidProgramException`: use unique object mapping in `NameService` to prevent name collisions
-- **Fixed** `TypeLoadException`: preserve interface and virtual methods to maintain CLR contracts
+- **Fixed** OOM crashes and `thread-safety` bugs
 
 > *`Xerinfuscator` Next-Gen .NET Obfuscator* 🛡️  
 
