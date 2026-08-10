@@ -106,24 +106,37 @@ Native wrapping (native packer) is only available for **.NET Framework executabl
 
 ## Changelog Highlights
 
-## What's New in v9.5.0 - 08/08/2026
+## What's New in v9.6.0 - 10/08/2026
 
 ⚙️ **Xerin Core**
 ↓
+**Compression Engine**
+↓
 **Improvements** ⤵
-- **Improved** core's module writing options
+- **Improved** Native LZ4 Engine: `Upgraded to pure C# unsafe LZ4 for extreme decompression speeds with zero external DLL dependencies (Windows 7 / .NET 2.0+ ready)`
+- **Improved** 64-bit Pointer Unpacking: `Accelerated payload decompression using unchecked 64-bit memory copies`
+- **Improved** Thread Safety: `Isolated hash tables per thread for parallel compression`
 
-🛡️ **Native Packer**
 ↓
 **Fixes** ⤵
-- **Fixed** `System.OutOfMemoryException` by removing conflicting `PreserveBlobOffsets` when re-writing modified assemblies
+- **Fixed** Zero-Offset Bug: `Resolved offset = 0 exception caused by uninitialized hash slots (InvalidDataException)`
+- **Fixed** Payload Corruption: `Fixed match-length calculation to eliminate byte loss during resource extraction`
 
-🧬 **Code Virtualization**
-↓
-**VM**
+🧬 **Code Virtualization Engine**
 ↓
 **Fixes** ⤵
-- **Fixed** OOM crashes and `thread-safety` bugs
+- **Fixed** `OutOfMemoryException` on Large Assemblies: `Replaced full in-memory byte[] buffering of the protected output with a direct streamed file copy, removing the contiguous-allocation limit`
+
+📦 **Resources Encryption**
+↓
+**Improvements** ⤵
+- **Improved** Resource Marker Randomization: `Replaced static resource signatures with dynamic per-build cryptographic hashes`
+- **Improved** Legacy OS & FIPS Evasion: `Added low-level CAPI crypto fallbacks (SHA256CryptoServiceProvider) for seamless execution on Windows 7 & FIPS environments`
+
+↓
+**Fixes** ⤵
+- **Fixed** Assembly Dependency Leak: `Decoupled external runtime assembly linkages, ensuring 100% standalone binary execution`
+- **Fixed** Multi-Threaded Resource Race Conditions: `Enforced self-object synchronization across resource caches (_resCache) for safe concurrent access`
 
 > *`Xerinfuscator` Next-Gen .NET Obfuscator* 🛡️  
 
