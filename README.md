@@ -106,37 +106,47 @@ Native wrapping (native packer) is only available for **.NET Framework executabl
 
 ## Changelog Highlights
 
-## What's New in v9.6.0 - 10/08/2026
+## What's New in v9.7.0 - 15/08/2026
 
-⚙️ **Xerin Core**
+🧬 **Code Virtualization**
 ↓
-**Compression Engine**
+**VM**
 ↓
 **Improvements** ⤵
-- **Improved** Native LZ4 Engine: `Upgraded to pure C# unsafe LZ4 for extreme decompression speeds with zero external DLL dependencies (Windows 7 / .NET 2.0+ ready)`
-- **Improved** 64-bit Pointer Unpacking: `Accelerated payload decompression using unchecked 64-bit memory copies`
-- **Improved** Thread Safety: `Isolated hash tables per thread for parallel compression`
+- **Improved** Hardened low-level anti-debugging via direct PEB inspection and upgraded control flow with non-linear MBA and SMT-resistant algebraic invariants
 
 ↓
 **Fixes** ⤵
-- **Fixed** Zero-Offset Bug: `Resolved offset = 0 exception caused by uninitialized hash slots (InvalidDataException)`
-- **Fixed** Payload Corruption: `Fixed match-length calculation to eliminate byte loss during resource extraction`
+- **Fixed** Eliminated post-JIT memory leakage, sanitized in-memory loader signatures, and resolved multithreaded bootstrap initialization crashes
 
-🧬 **Code Virtualization Engine**
-↓
-**Fixes** ⤵
-- **Fixed** `OutOfMemoryException` on Large Assemblies: `Replaced full in-memory byte[] buffering of the protected output with a direct streamed file copy, removing the contiguous-allocation limit`
-
-📦 **Resources Encryption**
+🪝 **Anti Hook**
 ↓
 **Improvements** ⤵
-- **Improved** Resource Marker Randomization: `Replaced static resource signatures with dynamic per-build cryptographic hashes`
-- **Improved** Legacy OS & FIPS Evasion: `Added low-level CAPI crypto fallbacks (SHA256CryptoServiceProvider) for seamless execution on Windows 7 & FIPS environments`
+- **Improved** Switched to pure MEM_IMAGE memory validation with zero hardcoded DLL names and silent execution
 
 ↓
 **Fixes** ⤵
-- **Fixed** Assembly Dependency Leak: `Decoupled external runtime assembly linkages, ensuring 100% standalone binary execution`
-- **Fixed** Multi-Threaded Resource Race Conditions: `Enforced self-object synchronization across resource caches (_resCache) for safe concurrent access`
+- **Fixed** Resolved x64 AV/EDR false positives, Windows 11 CET (endbr64) conflicts, and P/Invoke alignment bugs
+
+📦 **.NET Packer**
+↓
+**Improvements** ⤵
+- **Improved** Build Speed & I/O: ~70% faster packaging via cached compiler discovery and zero-redundant disk operations
+
+↓
+**Fixes** ⤵
+- **Fixed** Runtime Stability: Resolved in-memory crashes, missing file paths (Assembly.Location), and async/Task Anti-Dump corruption
+
+🔤 **Renamer**
+↓
+**Analyzer**
+↓
+**Improvements** ⤵
+- **Improved** Hardened runtime symbol integrity with resilient multi-tier name validation, atomic cryptographic tokens, and adaptive anti-stripping thresholds
+
+↓
+**Fixes** ⤵
+- **Fixed** Resolved runtime signature corruption caused by downstream stack constant mutations and eliminated false-positive count failures under code virtualization
 
 > *`Xerinfuscator` Next-Gen .NET Obfuscator* 🛡️  
 
