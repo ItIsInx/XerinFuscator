@@ -106,47 +106,37 @@ Native wrapping (native packer) is only available for **.NET Framework executabl
 
 ## Changelog Highlights
 
-## What's New in v9.7.0 - 15/08/2026
+## What's New in v9.8.0 - 16/08/2026
+
+⚙️ **Xerin Core**
+↓
+**Improvements** ⤵
+- **Improved** Virtualization method selection state dropping after obfuscation lifecycle and assembly reload
+
+↓
+**Fixes** ⤵
+- **Fixed** some bugs in XML projects
 
 🧬 **Code Virtualization**
 ↓
 **VM**
 ↓
+**Fixes** ⤵
+- **Fixed** 64-bit JIT CLR crash (`InvalidProgramException` & `.cctor` delegate failure)
+
+🔀 **Control Flow**
+↓
 **Improvements** ⤵
-- **Improved** Hardened low-level anti-debugging via direct PEB inspection and upgraded control flow with non-linear MBA and SMT-resistant algebraic invariants
+- **Improved** Buffered return values into local frames (`stloc/ldloc`) before back-edges to maintain zero-depth stack invariance for Code Virtualization ILAST construction
+- **Improved** Removed all heap allocations (`box/unbox/newarr`) for zero-overhead execution under Code Virtualization
+- **Improved** Added auto-padding for short 1-liners and constructors so zero methods are skipped
+- **Improved** Injected cyclic back-edges to block dnSpy/ILSpy from simplifying flattened state machines
 
 ↓
 **Fixes** ⤵
-- **Fixed** Eliminated post-JIT memory leakage, sanitized in-memory loader signatures, and resolved multithreaded bootstrap initialization crashes
-
-🪝 **Anti Hook**
-↓
-**Improvements** ⤵
-- **Improved** Switched to pure MEM_IMAGE memory validation with zero hardcoded DLL names and silent execution
-
-↓
-**Fixes** ⤵
-- **Fixed** Resolved x64 AV/EDR false positives, Windows 11 CET (endbr64) conflicts, and P/Invoke alignment bugs
-
-📦 **.NET Packer**
-↓
-**Improvements** ⤵
-- **Improved** Build Speed & I/O: ~70% faster packaging via cached compiler discovery and zero-redundant disk operations
-
-↓
-**Fixes** ⤵
-- **Fixed** Runtime Stability: Resolved in-memory crashes, missing file paths (Assembly.Location), and async/Task Anti-Dump corruption
-
-🔤 **Renamer**
-↓
-**Analyzer**
-↓
-**Improvements** ⤵
-- **Improved** Hardened runtime symbol integrity with resilient multi-tier name validation, atomic cryptographic tokens, and adaptive anti-stripping thresholds
-
-↓
-**Fixes** ⤵
-- **Fixed** Resolved runtime signature corruption caused by downstream stack constant mutations and eliminated false-positive count failures under code virtualization
+- **Fixed** XVM AST Crash (Inconsistent stack depth): Resolved SSA stack balance mismatch between CFG branch edges and switch headers
+- **Fixed** SEH Crash (`InvalidProgramException`): Fixed CLR stack corruption by isolating Catch/Finally blocks
+- **Fixed** Async/Await Crash (`NullReferenceException`): Excluded compiler-generated `MoveNext()` state machines from inner mangling
 
 > *`Xerinfuscator` Next-Gen .NET Obfuscator* 🛡️  
 
