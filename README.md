@@ -106,37 +106,69 @@ Native wrapping (native packer) is only available for **.NET Framework executabl
 
 ## Changelog Highlights
 
-## What's New in v9.8.0 - 16/08/2026
+## What's New in v9.9.0 - 19/08/2026
+
+<<ـــــــــــــ**Important Update!**ــــــــــــ>>
 
 ⚙️ **Xerin Core**
 ↓
+**Removed** ⤵
+- **Removed** Constants Mover protection for some security reasons
+
+↓
 **Improvements** ⤵
-- **Improved** Virtualization method selection state dropping after obfuscation lifecycle and assembly reload
+- **Improved** Code Mutation execution core for better performance
 
 ↓
 **Fixes** ⤵
-- **Fixed** some bugs in XML projects
+- **Fixed** cross-module memory leaks and static runtime retention, enforcing cleanups across all protections
 
 🧬 **Code Virtualization**
 ↓
-**VM**
-↓
 **Fixes** ⤵
-- **Fixed** 64-bit JIT CLR crash (`InvalidProgramException` & `.cctor` delegate failure)
+- **Fixed** an infinite loop and memory exhaustion (`OutOfMemoryException`) in XVM's dataflow liveness analysis caused by cyclic control flow graphs
+- **Fixed** a `NullReferenceException` and an `OutOfMemoryException` in Code Virtualization by decoupling token retrieval from detached type definitions and resolving virtualization target methods directly against the active target module instance
+- **Fixed** VM crashes — virtualization NRE, x64 `InvalidProgramException` (try-block), and null `this` on call-result calls (`Make().Add()` / `App.Run()`)
+
+↓
+**Improvements** ⤵
+- **Improved** un-translatable methods now stay native instead of failing protection; build-time IL checks catch invalid runtime IL before shipping
 
 🔀 **Control Flow**
 ↓
+**New** ⤵
+- **Added** new super-fast Control Flow level (Level 1), now the default
+
+↓
 **Improvements** ⤵
-- **Improved** Buffered return values into local frames (`stloc/ldloc`) before back-edges to maintain zero-depth stack invariance for Code Virtualization ILAST construction
-- **Improved** Removed all heap allocations (`box/unbox/newarr`) for zero-overhead execution under Code Virtualization
-- **Improved** Added auto-padding for short 1-liners and constructors so zero methods are skipped
-- **Improved** Injected cyclic back-edges to block dnSpy/ILSpy from simplifying flattened state machines
+- **Improved** all CFlow levels now use an O(1) switch jump-table dispatch instead of the old O(N²) if-chain
 
 ↓
 **Fixes** ⤵
-- **Fixed** XVM AST Crash (Inconsistent stack depth): Resolved SSA stack balance mismatch between CFG branch edges and switch headers
-- **Fixed** SEH Crash (`InvalidProgramException`): Fixed CLR stack corruption by isolating Catch/Finally blocks
-- **Fixed** Async/Await Crash (`NullReferenceException`): Excluded compiler-generated `MoveNext()` state machines from inner mangling
+- **Fixed** control-flow flattening no longer hangs or pegs the CPU on large or already-obfuscated assemblies (per-block flatten budget caps JIT blow-up)
+
+📦 **.NET Packer**
+↓
+**Fixes** ⤵
+- **Fixed** an `OutOfMemoryException` in Native Packer by replacing in-memory PE serialization with chunked disk streaming and enforcing early module disposal
+- **Fixed** post-build Win32 resource injection by replacing it with MSVC `rc.exe` link-time embedding to resolve native PE memory allocation crashes
+
+🛡️ **Integrity Check**
+↓
+**Fixes** ⤵
+- **Fixed** `OutOfMemoryException` on repeated runs in IntegrityCheck by switching to streaming SHA-256 hashing and eliminating static module reference leaks
+
+🔤 **Renamer**
+↓
+**Analyzer**
+↓
+**Improvements** ⤵
+- **Improved** Renamer analysis and fixup passes for large assemblies via multi-core parallel instruction scanning, unified BAML lookups, and concurrent type-hierarchy resolution caching
+- **Improved** cached serialization checks per type and hoisted VB runtime constants
+
+↓
+**Fixes** ⤵
+- **Fixed** removed quadratic O((props+fields)²) attribute rescan on serializer-free assemblies
 
 > *`Xerinfuscator` Next-Gen .NET Obfuscator* 🛡️  
 
