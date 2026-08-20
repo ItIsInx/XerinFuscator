@@ -106,69 +106,52 @@ Native wrapping (native packer) is only available for **.NET Framework executabl
 
 ## Changelog Highlights
 
-## What's New in v9.9.0 - 19/08/2026
-
-<<ـــــــــــــ**Important Update!**ــــــــــــ>>
+## What's New in v9.9.1 - 20/08/2026
 
 ⚙️ **Xerin Core**
 ↓
-**Removed** ⤵
-- **Removed** Constants Mover protection for some security reasons
-
-↓
 **Improvements** ⤵
-- **Improved** Code Mutation execution core for better performance
+- **Improved** General engine improvements
 
 ↓
 **Fixes** ⤵
-- **Fixed** cross-module memory leaks and static runtime retention, enforcing cleanups across all protections
-
-🧬 **Code Virtualization**
-↓
-**Fixes** ⤵
-- **Fixed** an infinite loop and memory exhaustion (`OutOfMemoryException`) in XVM's dataflow liveness analysis caused by cyclic control flow graphs
-- **Fixed** a `NullReferenceException` and an `OutOfMemoryException` in Code Virtualization by decoupling token retrieval from detached type definitions and resolving virtualization target methods directly against the active target module instance
-- **Fixed** VM crashes — virtualization NRE, x64 `InvalidProgramException` (try-block), and null `this` on call-result calls (`Make().Add()` / `App.Run()`)
-
-↓
-**Improvements** ⤵
-- **Improved** un-translatable methods now stay native instead of failing protection; build-time IL checks catch invalid runtime IL before shipping
-
-🔀 **Control Flow**
-↓
-**New** ⤵
-- **Added** new super-fast Control Flow level (Level 1), now the default
-
-↓
-**Improvements** ⤵
-- **Improved** all CFlow levels now use an O(1) switch jump-table dispatch instead of the old O(N²) if-chain
-
-↓
-**Fixes** ⤵
-- **Fixed** control-flow flattening no longer hangs or pegs the CPU on large or already-obfuscated assemblies (per-block flatten budget caps JIT blow-up)
+- **Fixed** Engine stability issues
 
 📦 **.NET Packer**
 ↓
-**Fixes** ⤵
-- **Fixed** an `OutOfMemoryException` in Native Packer by replacing in-memory PE serialization with chunked disk streaming and enforcing early module disposal
-- **Fixed** post-build Win32 resource injection by replacing it with MSVC `rc.exe` link-time embedding to resolve native PE memory allocation crashes
+**Improvements** ⤵
+- **Improved** `TransferIcons` — now creates a fresh `PortableExecutable` instance per resource instead of sharing one object across loops
 
-🛡️ **Integrity Check**
 ↓
 **Fixes** ⤵
-- **Fixed** `OutOfMemoryException` on repeated runs in IntegrityCheck by switching to streaming SHA-256 hashing and eliminating static module reference leaks
+- **Fixed** `RunRemoteHost` deadlock caused by `WaitForExit()` before `ReadToEnd()` — switched to async `BeginOutputReadLine` / `BeginErrorReadLine`
+- **Fixed** icon transfer failing on locked output files after compilation — added `WaitForFileUnlock()` helper
+- **Fixed** `RT_GROUP_ICON` written before `RT_ICON` entries — corrected resource transfer order (`manifest → RT_ICON → RT_GROUP_ICON`)
+
+🔤 **Strings Encryption**
+↓
+**Improvements** ⤵
+- **Improved** Streamlined string encryption engine and optimized callsite overhead
+
+↓
+**Fixes** ⤵
+- **Fixed** Engine stability issues
 
 🔤 **Renamer**
 ↓
 **Analyzer**
 ↓
+**New** ⤵
+- **Added** Runtime rename-map resolver: reflection lookups whose name is only known at runtime (`Type.GetType` / `GetMethod` / `GetField` / `GetProperty` / `GetEvent`) now fall back through an embedded encrypted old→new map, so late-bound calls keep resolving after renaming — opt-in via `Globals.renameResolver`
+
+↓
 **Improvements** ⤵
-- **Improved** Renamer analysis and fixup passes for large assemblies via multi-core parallel instruction scanning, unified BAML lookups, and concurrent type-hierarchy resolution caching
-- **Improved** cached serialization checks per type and hoisted VB runtime constants
+- **Improved** Types/methods referenced by string (`Activator` / `Assembly.CreateInstance`, assembly-qualified `Type.GetType`, `Delegate.CreateDelegate`) are now preserved so late-bound lookups keep resolving
+- **Improved** Resolver only translates when the verbatim lookup fails, so it never changes the outcome of reflection that already works
 
 ↓
 **Fixes** ⤵
-- **Fixed** removed quadratic O((props+fields)²) attribute rescan on serializer-free assemblies
+- **Fixed** Raw embedded resources (icons/logos) no longer go blank after renaming — namespace-derived manifest names, `.resources` streams, and `ResourceManager` base names now stay in sync
 
 > *`Xerinfuscator` Next-Gen .NET Obfuscator* 🛡️  
 
