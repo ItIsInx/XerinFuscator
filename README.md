@@ -106,7 +106,7 @@ Native wrapping (native packer) is only available for **.NET Framework executabl
 
 ## Changelog Highlights
 
-## What's New in v9.9.1 - 20/08/2026
+## What's New in v9.9.2 - 23/08/2026
 
 ⚙️ **Xerin Core**
 ↓
@@ -117,41 +117,15 @@ Native wrapping (native packer) is only available for **.NET Framework executabl
 **Fixes** ⤵
 - **Fixed** Engine stability issues
 
-📦 **.NET Packer**
-↓
-**Improvements** ⤵
-- **Improved** `TransferIcons` — now creates a fresh `PortableExecutable` instance per resource instead of sharing one object across loops
-
-↓
-**Fixes** ⤵
-- **Fixed** `RunRemoteHost` deadlock caused by `WaitForExit()` before `ReadToEnd()` — switched to async `BeginOutputReadLine` / `BeginErrorReadLine`
-- **Fixed** icon transfer failing on locked output files after compilation — added `WaitForFileUnlock()` helper
-- **Fixed** `RT_GROUP_ICON` written before `RT_ICON` entries — corrected resource transfer order (`manifest → RT_ICON → RT_GROUP_ICON`)
-
 🔤 **Strings Encryption**
 ↓
 **Improvements** ⤵
-- **Improved** Streamlined string encryption engine and optimized callsite overhead
+- **Improved** RNG pooling in string obfuscators (single instance vs per-call), and buffer initialization from `256` to `512` bytes
+- **Improved** Hardened runtime compatibility via zero-dependency `RijndaelManaged`, deferred `Interlocked` synchronization, and universal `.cctor` injection safeguards
 
 ↓
 **Fixes** ⤵
-- **Fixed** Engine stability issues
-
-🔤 **Renamer**
-↓
-**Analyzer**
-↓
-**New** ⤵
-- **Added** Runtime rename-map resolver: reflection lookups whose name is only known at runtime (`Type.GetType` / `GetMethod` / `GetField` / `GetProperty` / `GetEvent`) now fall back through an embedded encrypted old→new map, so late-bound calls keep resolving after renaming — opt-in via `Globals.renameResolver`
-
-↓
-**Improvements** ⤵
-- **Improved** Types/methods referenced by string (`Activator` / `Assembly.CreateInstance`, assembly-qualified `Type.GetType`, `Delegate.CreateDelegate`) are now preserved so late-bound lookups keep resolving
-- **Improved** Resolver only translates when the verbatim lookup fails, so it never changes the outcome of reflection that already works
-
-↓
-**Fixes** ⤵
-- **Fixed** Raw embedded resources (icons/logos) no longer go blank after renaming — namespace-derived manifest names, `.resources` streams, and `ResourceManager` base names now stay in sync
+- **Fixed** Resolved Unity Mono 2.0 / .NET 3.5 runtime crashes (`MissingMethodException`, `<Module>` `TypeLoadException`, and bundle reader dictionary collisions)
 
 > *`Xerinfuscator` Next-Gen .NET Obfuscator* 🛡️  
 
