@@ -106,26 +106,16 @@ Native wrapping (native packer) is only available for **.NET Framework executabl
 
 ## Changelog Highlights
 
-## What's New in v9.9.2 - 23/08/2026
+## What's New in v9.9.3 - 25/08/2026
 
-⚙️ **Xerin Core**
+🔤 **Renamer**
 ↓
-**Improvements** ⤵
-- **Improved** General engine improvements
-
+**Analyzer**
 ↓
 **Fixes** ⤵
-- **Fixed** Engine stability issues
-
-🔤 **Strings Encryption**
-↓
-**Improvements** ⤵
-- **Improved** RNG pooling in string obfuscators (single instance vs per-call), and buffer initialization from `256` to `512` bytes
-- **Improved** Hardened runtime compatibility via zero-dependency `RijndaelManaged`, deferred `Interlocked` synchronization, and universal `.cctor` injection safeguards
-
-↓
-**Fixes** ⤵
-- **Fixed** Resolved Unity Mono 2.0 / .NET 3.5 runtime crashes (`MissingMethodException`, `<Module>` `TypeLoadException`, and bundle reader dictionary collisions)
+- **Fixed** WinForms Form types and namespaces renaming in executable modules by syncing public type configurations and allowing executable type obfuscation
+- **Fixed** "Configuration system failed to initialize" crashes by preserving Settings, ApplicationSettingsBase, and config handlers along with their members
+- **Fixed** Disappearing Form background images and resources by aligning .resources manifest renames, preserving Properties.Resources, and protecting resource dictionary keys
 
 > *`Xerinfuscator` Next-Gen .NET Obfuscator* 🛡️  
 
