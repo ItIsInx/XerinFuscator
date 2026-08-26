@@ -106,16 +106,20 @@ Native wrapping (native packer) is only available for **.NET Framework executabl
 
 ## Changelog Highlights
 
-## What's New in v9.9.3 - 25/08/2026
+## What's New in v9.9.4 - 26/08/2026
 
-🔤 **Renamer**
+🧬 **Code Virtualization**
 ↓
-**Analyzer**
+**VM**
+↓
+**Improvements** ⤵
+- **Improved** Runtime Compatibility: Enhanced output assembly stability across legacy runtimes, game frameworks, and GUI applications
+
 ↓
 **Fixes** ⤵
-- **Fixed** WinForms Form types and namespaces renaming in executable modules by syncing public type configurations and allowing executable type obfuscation
-- **Fixed** "Configuration system failed to initialize" crashes by preserving Settings, ApplicationSettingsBase, and config handlers along with their members
-- **Fixed** Disappearing Form background images and resources by aligning .resources manifest renames, preserving Properties.Resources, and protecting resource dictionary keys
+- **Fixed** Virtualization Method Loss: Fixed a bug where selected methods were dropped and skipped during the protection build
+- **Fixed** Metadata Writer Merging: Prevented method bodies from being merged during binary emission
+- **Fixed** Type Conversion Bug: Fixed an internal attribute constructor casting error during build time
 
 > *`Xerinfuscator` Next-Gen .NET Obfuscator* 🛡️  
 
