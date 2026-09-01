@@ -106,56 +106,24 @@ Native wrapping (native packer) is only available for **.NET Framework executabl
 
 ## Changelog Highlights
 
-## What's New in v9.9.5 - 29/08/2026
+## What's New in v9.9.6 - 01/09/2026
 
 ⚙️ **Xerin Core**
 ↓
 **Improvements** ⤵
-- **Improved** General bug fixes
-
-↓
-**Fixes** ⤵
-- **Fixed** Minor bugs
+- **Improved** Single-File Output: Merged Obfuscation, VM, and Packer into 1 final file instead of generating 3 separate files (`-obfuscated`, `-vm`, `-packed`)
 
 🧬 **Code Virtualization**
 ↓
 **VM**
 ↓
 **Improvements** ⤵
-- **Improved** Optimized internal state cleanup for faster protection runs
-- **Improved** Stealth Native Layer: Compile-time string encryption for all native APIs (ntdll, clrjit, PEB)
-- **Improved** ARM64 Ready: Added full ARM64 PEB reading and unwind table support
-- **Improved** VM Optimization: Enabled peephole fusion, dead instruction removal, and push/pop elimination
-- **Improved** Tiered JIT Support: Ephemeral on-demand IL decryption for dynamic PGO & re-compilation
+- **Improved** VM Entry Hardening
 
 ↓
 **Fixes** ⤵
-- **Fixed** Resolved corruption and slowdown when re-virtualizing an already-protected assembly
-- **Fixed** Memory & Unwinding: Resolved PE header mapping AV faults (PAGE_READONLY zeroed headers)
-- **Fixed** Pointer Safety: Added bounds-checking to unmanaged image byte reads
-- **Fixed** Resource Cleanup: Fixed pinned GCHandle leaks on module unloads
-- **Fixed** Context Isolation: Resolved constant zeroing state leak that caused OutOfMemoryException
-
-🔀 **Control Flow**
-↓
-**Improvements** ⤵
-- **Improved** Control Flow Flattening across all engine tiers (Level 1–4) with 100% method coverage and zero exclusions
-- **Improved** intra-block statement fragmentation and opaque state entropy
-- **Improved** bytecode normalization pipeline and ECMA-335 compliance
-- **Improved** resilience against advanced symbolic execution engines and static deobfuscators
-
-↓
-**Fixes** ⤵
-- **Fixed** an edge-case CLR JIT verification failure (InvalidProgramException) triggered in async state machines and exception-handled routines
-- **Fixed** structured exception handling (SEH) boundary alignment across isolated handler scopes
-- **Fixed** stack balance discrepancies during terminal transfer dispatching in micro-methods
-
-🔤 **Renamer**
-↓
-**Validator**
-↓
-**Fixes** ⤵
-- **Fixed** Rename Map check so it no longer falsely detects valid entries
+- **Fixed** .NET Core / .NET 10 Support: Fixed multi-module crash (`0x8013101E`) and startup `BadImageFormatException` on WPF/.NET 10
+- **Fixed** VM Method Lookup: Fixed `KeyNotFoundException` (No VM export) by preserving metadata tokens across build passes
 
 > *`Xerinfuscator` Next-Gen .NET Obfuscator* 🛡️  
 
