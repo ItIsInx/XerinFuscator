@@ -106,24 +106,28 @@ Native wrapping (native packer) is only available for **.NET Framework executabl
 
 ## Changelog Highlights
 
-## What's New in v9.9.6 - 01/09/2026
+## What's New in v9.9.7 - 03/09/2026
 
-⚙️ **Xerin Core**
+💥 **Anti Hook**
 ↓
 **Improvements** ⤵
-- **Improved** Single-File Output: Merged Obfuscation, VM, and Packer into 1 final file instead of generating 3 separate files (`-obfuscated`, `-vm`, `-packed`)
-
-🧬 **Code Virtualization**
-↓
-**VM**
-↓
-**Improvements** ⤵
-- **Improved** VM Entry Hardening
+- **Improved** Stealth Plugin Fingerprinting: Enhanced proactive detection against advanced debugger hiding utilities
+- **Improved** Security Software Compatibility: Refined module validation to eliminate false positives with legitimate AV/EDR solutions
 
 ↓
 **Fixes** ⤵
-- **Fixed** .NET Core / .NET 10 Support: Fixed multi-module crash (`0x8013101E`) and startup `BadImageFormatException` on WPF/.NET 10
-- **Fixed** VM Method Lookup: Fixed `KeyNotFoundException` (No VM export) by preserving metadata tokens across build passes
+- **Fixed** x86 & WoW64 Hook Evasion: Resolved bypasses on 32-bit architectures and reinforced system transition integrity checks
+- **Fixed** Memory Detour Bypass: Closed validation loopholes allowing detours in system memory to go undetected
+
+🛡️ **Anti Debug**
+↓
+**Improvements** ⤵
+- **Improved** Deep Kernel Inquiries: Implemented direct system-level checks to accurately catch active debugger attachments
+- **Improved** Architecture Parity: Ensured consistent, high-strength detection across both 32-bit and 64-bit processes
+
+↓
+**Fixes** ⤵
+- **Fixed** User-Mode Spoofing Evasion: Hardened routines against PEB tampering and debugger masking techniques
 
 > *`Xerinfuscator` Next-Gen .NET Obfuscator* 🛡️  
 
