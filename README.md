@@ -106,28 +106,21 @@ Native wrapping (native packer) is only available for **.NET Framework executabl
 
 ## Changelog Highlights
 
-## What's New in v9.9.7 - 03/09/2026
+## What's New in v9.9.8 - 10/09/2026
 
-💥 **Anti Hook**
+🧬 **Code Virtualization**
+↓
+**VM**
 ↓
 **Improvements** ⤵
-- **Improved** Stealth Plugin Fingerprinting: Enhanced proactive detection against advanced debugger hiding utilities
-- **Improved** Security Software Compatibility: Refined module validation to eliminate false positives with legitimate AV/EDR solutions
+- **Improved** VM core execution security and runtime integrity verification
+- **Improved** Large-Assembly Virtualization & Runtime Embedding Speed: Parallel stub patching, metadata caching, and O(1) token resolution
+- **Improved** VM String Handling: Integrated `string.Intern` for decoded literals to preserve full Unicode integrity
+- **Improved** Runtime Compatibility Layer: Added safe, zero-config framework synchronization in `VMEntry` supporting both .NET Framework and .NET Core
 
 ↓
 **Fixes** ⤵
-- **Fixed** x86 & WoW64 Hook Evasion: Resolved bypasses on 32-bit architectures and reinforced system transition integrity checks
-- **Fixed** Memory Detour Bypass: Closed validation loopholes allowing detours in system memory to go undetected
-
-🛡️ **Anti Debug**
-↓
-**Improvements** ⤵
-- **Improved** Deep Kernel Inquiries: Implemented direct system-level checks to accurately catch active debugger attachments
-- **Improved** Architecture Parity: Ensured consistent, high-strength detection across both 32-bit and 64-bit processes
-
-↓
-**Fixes** ⤵
-- **Fixed** User-Mode Spoofing Evasion: Hardened routines against PEB tampering and debugger masking techniques
+- **Fixed** CLR Quirks Mode Trigger: Fixed `TargetFrameworkName` dropping to `null` during VM startup, restoring modern `RICHEDIT50W` instead of fallback `RichEdit20W`
 
 > *`Xerinfuscator` Next-Gen .NET Obfuscator* 🛡️  
 
