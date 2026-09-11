@@ -106,21 +106,18 @@ Native wrapping (native packer) is only available for **.NET Framework executabl
 
 ## Changelog Highlights
 
-## What's New in v9.9.8 - 10/09/2026
+## What's New in v9.9.9 - 11/09/2026
 
 🧬 **Code Virtualization**
 ↓
 **VM**
 ↓
 **Improvements** ⤵
-- **Improved** VM core execution security and runtime integrity verification
-- **Improved** Large-Assembly Virtualization & Runtime Embedding Speed: Parallel stub patching, metadata caching, and O(1) token resolution
-- **Improved** VM String Handling: Integrated `string.Intern` for decoded literals to preserve full Unicode integrity
-- **Improved** Runtime Compatibility Layer: Added safe, zero-config framework synchronization in `VMEntry` supporting both .NET Framework and .NET Core
+- **Improved** General core / runtime improvements
 
 ↓
 **Fixes** ⤵
-- **Fixed** CLR Quirks Mode Trigger: Fixed `TargetFrameworkName` dropping to `null` during VM startup, restoring modern `RICHEDIT50W` instead of fallback `RichEdit20W`
+- **Fixed** Stage2 virtualization target resolution across metadata RID shifts and purged SDK marker attribute leaks
 
 > *`Xerinfuscator` Next-Gen .NET Obfuscator* 🛡️  
 
