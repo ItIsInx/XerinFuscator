@@ -106,18 +106,40 @@ Native wrapping (native packer) is only available for **.NET Framework executabl
 
 ## Changelog Highlights
 
-## What's New in v9.9.9 - 11/09/2026
+## What's New in v10.0.0.0 - 15/09/2026
+
+⚙️ **Xerin Core**
+↓
+**New** ⤵
+- **Added** Full compatibility between Native C++ Packer and Binary Integrity Verification (Standard & VM pipelines)
+
+↓
+**Improvements** ⤵
+- **Improved** In-memory integrity resolution by dynamically anchoring the verification root to the native host image
+
+↓
+**Fixes** ⤵
+- **Fixed** Integrity check failures caused by post-compilation Win32 resource and PE section injection
 
 🧬 **Code Virtualization**
 ↓
 **VM**
 ↓
 **Improvements** ⤵
-- **Improved** General core / runtime improvements
+- **Improved** VM Stream Architecture: Re-engineered internal bytecode stream headers and metadata structures to neutralize automated static lifters and legacy devirtualization tools
+- **Improved** Dynamic Constant Layout: Implemented randomized per-assembly constant permutation to prevent static signature extraction and opcode mapping
+- **Improved** Metadata Token Masking: Enhanced reference and slot encryption to prevent static reconstruction of virtualized call targets
 
 ↓
-**Fixes** ⤵
-- **Fixed** Stage2 virtualization target resolution across metadata RID shifts and purged SDK marker attribute leaks
+**JIT**
+- **Improved** JIT Runtime Integrity: Hardened native execution routines with active detour detection and automated buffer poisoning against unauthorized JIT memory dumpers
+
+🔤 **Strings Encryption**
+↓
+**Improvements** ⤵
+- **Improved** Hardened string resolver against dynamic dumping and reflection attacks
+- **Improved** Eliminated plaintext string residue from managed heap using at-rest native masking
+- **Improved** Reinforced native runtime with low-level execution and debugger checks
 
 > *`Xerinfuscator` Next-Gen .NET Obfuscator* 🛡️  
 
