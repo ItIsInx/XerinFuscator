@@ -106,40 +106,30 @@ Native wrapping (native packer) is only available for **.NET Framework executabl
 
 ## Changelog Highlights
 
-## What's New in v10.0.0.0 - 15/09/2026
+## What's New in v10.0.1.0 - 17/09/2026
 
-⚙️ **Xerin Core**
+📦 **Secure Resources**
 ↓
-**New** ⤵
-- **Added** Full compatibility between Native C++ Packer and Binary Integrity Verification (Standard & VM pipelines)
-
-↓
-**Improvements** ⤵
-- **Improved** In-memory integrity resolution by dynamically anchoring the verification root to the native host image
+**New** ↘
+- **Added** Full WPF BAML resource encryption: Embedded `.g.resources` and compiled BAML streams are now fully encrypted into HMAC-tagged blobs and resolved transparently from in-memory cache
 
 ↓
-**Fixes** ⤵
-- **Fixed** Integrity check failures caused by post-compilation Win32 resource and PE section injection
-
-🧬 **Code Virtualization**
-↓
-**VM**
-↓
-**Improvements** ⤵
-- **Improved** VM Stream Architecture: Re-engineered internal bytecode stream headers and metadata structures to neutralize automated static lifters and legacy devirtualization tools
-- **Improved** Dynamic Constant Layout: Implemented randomized per-assembly constant permutation to prevent static signature extraction and opcode mapping
-- **Improved** Metadata Token Masking: Enhanced reference and slot encryption to prevent static reconstruction of virtualized call targets
+**Improvements** ↘
+- **Improved** Cross-Framework WPF Runtime Hooking: Refactored `ResourceContainer` reflection to use type-safe dynamic member resolution, ensuring complete compatibility across .NET Framework, .NET 8, and .NET 9/10/11+ regardless of internal naming conventions (`s_` vs `_` field prefixes)
+- **Improved** Runtime Lifecycle Stability: Suppressed WPF's internal wrapper reset handlers and hooked `AppDomain.AssemblyLoad` to keep custom `ResourceManager` bindings persistent throughout the application lifetime
 
 ↓
-**JIT**
-- **Improved** JIT Runtime Integrity: Hardened native execution routines with active detour detection and automated buffer poisoning against unauthorized JIT memory dumpers
+**Fixes** ↘
+- **Fixed** BAML Resolution for Versioned Pack URIs: Added registration for all assembly key permutations (`{name}v{ver}`, `{name};v{ver}`, `{name}{ver}`, etc.) in `s_registeredResourceManagers`, preventing WPF from falling back to default manifest grovelers
 
-🔤 **Strings Encryption**
+🔀 **Control Flow**
 ↓
-**Improvements** ⤵
-- **Improved** Hardened string resolver against dynamic dumping and reflection attacks
-- **Improved** Eliminated plaintext string residue from managed heap using at-rest native masking
-- **Improved** Reinforced native runtime with low-level execution and debugger checks
+**Improvements** ↘
+- **Improved** Hardened evaluation stack bounds (`MaxStack`) across flattened dispatchers to ensure 100% verifier compliance on optimized Release binaries
+
+↓
+**Fixes** ↘
+- **Fixed** Eliminated invalid trailing boundary instructions in exception handlers that caused silent JIT `InvalidProgramException` failures in background loop tasks
 
 > *`Xerinfuscator` Next-Gen .NET Obfuscator* 🛡️  
 
