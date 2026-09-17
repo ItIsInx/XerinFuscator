@@ -106,30 +106,22 @@ Native wrapping (native packer) is only available for **.NET Framework executabl
 
 ## Changelog Highlights
 
-## What's New in v10.0.1.0 - 17/09/2026
+## What's New in v10.0.2.0 - 17/09/2026
 
-📦 **Secure Resources**
+⚙️ **XerinFuscator G3**
 ↓
 **New** ↘
-- **Added** Full WPF BAML resource encryption: Embedded `.g.resources` and compiled BAML streams are now fully encrypted into HMAC-tagged blobs and resolved transparently from in-memory cache
+- **Added** Standalone installer for `Program Files` deployment alongside a silent auto-update engine.
 
+🧩 **Secure Strings**
 ↓
 **Improvements** ↘
-- **Improved** Cross-Framework WPF Runtime Hooking: Refactored `ResourceContainer` reflection to use type-safe dynamic member resolution, ensuring complete compatibility across .NET Framework, .NET 8, and .NET 9/10/11+ regardless of internal naming conventions (`s_` vs `_` field prefixes)
-- **Improved** Runtime Lifecycle Stability: Suppressed WPF's internal wrapper reset handlers and hooked `AppDomain.AssemblyLoad` to keep custom `ResourceManager` bindings persistent throughout the application lifetime
+- **Improved** String Encryption engine with hardened `anti dynamic analysis` resilience and `polymorphic call site mutation`
+- **Improved** String table decoding throughput with zero stack inspection overhead
 
 ↓
 **Fixes** ↘
-- **Fixed** BAML Resolution for Versioned Pack URIs: Added registration for all assembly key permutations (`{name}v{ver}`, `{name};v{ver}`, `{name}{ver}`, etc.) in `s_registeredResourceManagers`, preventing WPF from falling back to default manifest grovelers
-
-🔀 **Control Flow**
-↓
-**Improvements** ↘
-- **Improved** Hardened evaluation stack bounds (`MaxStack`) across flattened dispatchers to ensure 100% verifier compliance on optimized Release binaries
-
-↓
-**Fixes** ↘
-- **Fixed** Eliminated invalid trailing boundary instructions in exception handlers that caused silent JIT `InvalidProgramException` failures in background loop tasks
+- **Fixed** Runtime dispatcher stability and string decoding reliability across all `CLR environments`
 
 > *`Xerinfuscator` Next-Gen .NET Obfuscator* 🛡️  
 
