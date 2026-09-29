@@ -106,46 +106,20 @@ Native wrapping (native packer) is only available for **.NET Framework executabl
 
 ## Changelog Highlights
 
-## What's New in v10.0.4.0 - 26/09/2026
-
-🧠 **Xerin Core**
-↓
-**Improvements** ↘
-- General improvements
-
-↓
-**Fixes** ↘
-- Minor bug fixes
+## What's New in v10.0.5.0 - 29/09/2026
 
 🧬 **Code Virtualization**
 ↓
 **VM**
 ↓
 **Improvements** ↘
-- **VM Dispatch:** Added `RunFastLocal` execution loop for faster opcode dispatch
-- **Memory & Allocations:** Optimized argument pooling, stack slots, and delegate lookup caching
-
-📦 **Secure Resources**
-↓
-**Improvements** ↘
-- **Improved** Adaptive Runtime Probing: Added tiered signature dispatch supporting
+- **Faster VM Execution:** Optimized internal instruction dispatch and runtime verification, significantly lowering CPU overhead and latency
+- **Reduced Output Size:** Addressed binary bloat after virtualization by refining code generation heuristics for small methods
+- **Multi-Threading & Stability:** Improved thread concurrency and resolved memory management edge-cases in the native runtime core
 
 ↓
 **Fixes** ↘
-- **Fixed** MissingMethodException (.NET 5–10): Added `(Stream, bool)` constructor support for CoreCLR `RuntimeResourceSet`
-- **Fixed** ObjectDisposedException (WPF): Prevented closed-stream reuse by enforcing fresh lazy streams via `RuntimeResourceSet`
-- **Fixed** Framework Type Crash: Replaced hardcoded `Dictionary` on `_resourceSets` with dynamic type instantiation (`Hashtable` on .NET Framework)
-
-🔤 **Secure Strings**
-↓
-**Improvements** ↘
-- **String Parity:** Added `string.Intern` to restore native `ldstr` reference equality (`ReferenceEquals`) and deduplicate memory
-
-↓
-**Fixes** ↘
-- **Bitness Mismatch:** Resolved crashes when running AnyCPU assemblies inside 64-bit hosts by dual-embedding x86/x64 native engines
-- **SNative Stability:** Removed brittle debugger/return-address checks that caused false-positive decryption failures
-- **JIT Verification:** Fixed `InvalidProgramException` by correcting branch offsets and recalculating `MaxStack` limits
+- **Fixed** Saved virtualization method selections being cleared when loading an XML project into the GUI
 
 > *`Xerinfuscator` Next-Gen .NET Obfuscator* 🛡️  
 
