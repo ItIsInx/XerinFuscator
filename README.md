@@ -106,20 +106,25 @@ Native wrapping (native packer) is only available for **.NET Framework executabl
 
 ## Changelog Highlights
 
-## What's New in v10.0.5.0 - 29/09/2026
+## What's New in v10.0.6.0 - 01/10/2026
 
 🧬 **Code Virtualization**
 ↓
-**VM**
+**JIT**
 ↓
 **Improvements** ↘
-- **Faster VM Execution:** Optimized internal instruction dispatch and runtime verification, significantly lowering CPU overhead and latency
-- **Reduced Output Size:** Addressed binary bloat after virtualization by refining code generation heuristics for small methods
-- **Multi-Threading & Stability:** Improved thread concurrency and resolved memory management edge-cases in the native runtime core
+- **Improved JIT Protection:** Hardened the JIT compilation pipeline against memory interception and automated dumping tools
+- **Enhanced Host & Runtime Validation:** Strengthened low-level runtime integrity checks to prevent dynamic instrumentation
+- **Optimized Execution Stability:** Resolved edge-case compilation re-entrancy issues for smoother startup performance
+
+🔤 **Secure Strings**
+↓
+**Improvements** ↘
+- **Improved:** Enhanced string encryption engine with thread-safe decoding, reduced memory overhead, and seamless constant support
 
 ↓
 **Fixes** ↘
-- **Fixed** Saved virtualization method selections being cleared when loading an XML project into the GUI
+- **Fixed:** Resolved sporadic process terminations and race conditions occurring under multi-threaded 64-bit execution
 
 > *`Xerinfuscator` Next-Gen .NET Obfuscator* 🛡️  
 
