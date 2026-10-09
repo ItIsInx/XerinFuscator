@@ -106,25 +106,38 @@ Native wrapping (native packer) is only available for **.NET Framework executabl
 
 ## Changelog Highlights
 
-## What's New in v10.0.6.0 - 01/10/2026
+## What's New in v10.0.7.0 - 10/10/2026
+
+🧬 **Xerin's Core**
+↓
+**Improvements** ↘
+- **General improvements on core**
+- **Hardened security on runtimes**
 
 🧬 **Code Virtualization**
 ↓
-**JIT**
+**VM**
 ↓
 **Improvements** ↘
-- **Improved JIT Protection:** Hardened the JIT compilation pipeline against memory interception and automated dumping tools
-- **Enhanced Host & Runtime Validation:** Strengthened low-level runtime integrity checks to prevent dynamic instrumentation
-- **Optimized Execution Stability:** Resolved edge-case compilation re-entrancy issues for smoother startup performance
-
-🔤 **Secure Strings**
-↓
-**Improvements** ↘
-- **Improved:** Enhanced string encryption engine with thread-safe decoding, reduced memory overhead, and seamless constant support
+- **Core Virtualization Engine:** Enhanced virtualization pipeline stability and execution performance for complex multi-threaded workloads, matrix operations, and high-frequency loops
+- **Anti-Devirtualization Shield:** Hardened virtual machine internals and state dispatchers against pattern scanning and automated symbolic analysis
 
 ↓
 **Fixes** ↘
-- **Fixed:** Resolved sporadic process terminations and race conditions occurring under multi-threaded 64-bit execution
+- **Instruction Dispatch Alignment:** Fixed stack evaluation and state synchronization anomalies during external BCL method calls and array transformations
+- **General Stability:** Addressed edge-case crashes during deep virtualization passes on nested algorithms
+
+↓
+**JIT**
+↓
+**Fixes** ↘
+- **JIT Compiler Compatibility:** Resolved rare `InvalidProgramException` and runtime limitations encountered during dynamic IL compilation on RyuJIT (.NET Framework / .NET Core)
+
+📦 **Packer**
+↓
+**Improvements** ↘
+- **Standalone Packing Engine:** Added a zero-dependency Native PE builder with automatic environment fallback
+- **Framework Interop:** Enhanced compatibility across Console, WinForms, and WPF workloads
 
 > *`Xerinfuscator` Next-Gen .NET Obfuscator* 🛡️  
 
