@@ -106,27 +106,26 @@ Native wrapping (native packer) is only available for **.NET Framework executabl
 
 ## Changelog Highlights
 
-## What's New in v10.0.8.0 - 12/10/2026
+## What's New in v10.0.9.0 - 17/10/2026
 
 ⚙️ **Core**
 ↓
-🗜️ **Compression**
-↓
 **Improvements** ↘
-- Reused a per-thread compression `buffer` instead of `reallocating` on every call, reducing `memory` pressure and fragmentation
+- General improvements
+
+↓
+**Fixes** ↘
+- Minor bug fixes
 
 📦 **Packer**
 ↓
 **Improvements** ↘
-- Native stub now matches application bitness (`AnyCPU → x64 on 64-bit systems`)
-- **Smarter elevation handling:** Detects admin intent directly from `payload` code
-- Native loader now forwards `command-line` arguments to the payload
-- Reduced `post-packing` runtime failures from missing `config/manifest`
+- Improved `WPF` compatibility in the native packer stub
+- Updated `x86 and x64` templates; MSVC `compilation` is now a fallback
 
 ↓
 **Fixes** ↘
-- Embedded UAC manifest is preserved, with `requireAdministrator` applied when required
-- `Assembly.GetEntryAssembly()` and `Assembly.Location` no longer return null/empty under in-memory load
+- Fixed `parameter mismatch` errors when launching assemblies with `parameterless` entry points
 
 > *`Xerinfuscator` Next-Gen .NET Obfuscator* 🛡️  
 
